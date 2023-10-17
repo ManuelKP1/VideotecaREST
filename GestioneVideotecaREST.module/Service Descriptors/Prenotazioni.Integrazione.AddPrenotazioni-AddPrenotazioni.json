@@ -1,0 +1,63 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "AddPrenotazioni",
+    "description" : "AddPrenotazioni service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/addprenotazioni" : {
+      "post" : {
+        "summary" : "postAddPrenotazioni",
+        "description" : "postAddPrenotazioni",
+        "operationId" : "AddPrenotazioni",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/RequestAdd"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseAdd to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseAdd"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "RequestAdd" : {
+      "type" : "object",
+      "required" : [ "ID_Film", "email" ],
+      "properties" : {
+        "email" : {
+          "type" : "string"
+        },
+        "ID_Film" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "ResponseAdd" : {
+      "type" : "object",
+      "required" : [ "reponse" ],
+      "properties" : {
+        "reponse" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

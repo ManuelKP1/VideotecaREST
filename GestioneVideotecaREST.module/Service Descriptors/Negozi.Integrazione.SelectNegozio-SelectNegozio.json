@@ -1,0 +1,62 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "SelectNegozio",
+    "description" : "SelectNegozio service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/selectnegozio" : {
+      "get" : {
+        "summary" : "getSelectNegozio",
+        "description" : "getSelectNegozio",
+        "operationId" : "SelectNegozio",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseSelect to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseSelect"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "ResponseSelect" : {
+      "type" : "object",
+      "required" : [ "Negozi" ],
+      "properties" : {
+        "Negozi" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Negozi",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "Negozi" : {
+      "type" : "object",
+      "required" : [ "ID_Negozio", "Indirizzo", "citta" ],
+      "properties" : {
+        "ID_Negozio" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "citta" : {
+          "type" : "string"
+        },
+        "Indirizzo" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

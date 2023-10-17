@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Film" xmlns:tns="http://www.example.org/Film" elementFormDefault="qualified">
+
+    <complexType name="DatiFilm.Type">
+    	<sequence>
+    		<element name="Nome" type="string"></element>
+    		<element name="Durata" type="int"></element>
+    		<element name="DataUscita" type="date"></element>
+    		<element name="ID_Regista" type="int"></element>
+    		<element name="Copie" type="int"></element>
+    		<element name="Genere" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="RequestAdd" type="tns:DatiFilm.Type"></element>
+
+    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+
+    <complexType name="ResponseAdd.Type">
+    	<sequence>
+    		<element name="Response" type="string"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="DatiFilmCompleto.Type">
+    	<sequence>
+    		<element name="ID_Film" type="int"></element>
+    		<element name="Nome" type="string"></element>
+    		<element name="Durata" type="int"></element>
+    		<element name="DataUscita" type="date"></element>
+    		<element name="ID_Regista" type="int"></element>
+    		<element name="Copie" type="int"></element>
+    		<element name="Genere" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Lista.Type">
+    	<sequence>
+    		<element name="ListaFilm" type="tns:DatiFilmCompleto.Type" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="ResponseSelect" type="tns:Lista.Type"></element>
+
+    <element name="RequestDelete" type="tns:RequestDelete.Type"></element>
+
+    <complexType name="RequestDelete.Type">
+    	<sequence>
+    		<element name="ID_Film" type="int"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="RequestModify" type="tns:DatiFilmCompleto.Type"></element>
+</schema>

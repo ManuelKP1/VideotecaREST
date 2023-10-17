@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Regista" xmlns:tns="http://www.example.org/Regista" elementFormDefault="qualified">
+
+    <complexType name="DatiRegista.Type">
+    	<sequence>
+    		<element name="Nome" type="string"></element>
+    		<element name="Cognome" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="RequestAdd" type="tns:DatiRegista.Type"></element>
+
+    <complexType name="ResponseAdd.Type">
+    	<sequence>
+    		<element name="Response" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+
+    <element name="ResponseSelect" type="tns:Lista.Type"></element>
+
+
+    <complexType name="ListaRegisti.Type">
+    	<sequence>
+    		<element name="ID_Regista" type="int"></element>
+    		<element name="Nome" type="string"></element>
+    		<element name="Cognome" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Lista.Type">
+    	<sequence>
+    		<element name="ListaRegisti" type="tns:ListaRegisti.Type" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="RequestDelete" type="tns:RequestDelete.type"></element>
+
+    <complexType name="RequestDelete.type">
+    	<sequence>
+    		<element name="ID_Regista" type="int"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="RequestModify" type="tns:ListaRegisti.Type"></element>
+</schema>

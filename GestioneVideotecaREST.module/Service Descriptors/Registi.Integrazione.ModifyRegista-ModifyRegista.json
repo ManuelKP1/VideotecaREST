@@ -1,0 +1,66 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "ModifyRegista",
+    "description" : "ModifyRegista service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/modifyregista" : {
+      "put" : {
+        "summary" : "putModifyRegista",
+        "description" : "putModifyRegista",
+        "operationId" : "put-modifyregista",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/RequestModify"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseAdd to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseAdd"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "RequestModify" : {
+      "type" : "object",
+      "required" : [ "ID_Regista", "Nome", "Cognome" ],
+      "properties" : {
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Nome" : {
+          "type" : "string"
+        },
+        "Cognome" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ResponseAdd" : {
+      "type" : "object",
+      "required" : [ "Response" ],
+      "properties" : {
+        "Response" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Negozio" xmlns:tns="http://www.example.org/Negozio" elementFormDefault="qualified">
+
+    <complexType name="DatiNegozio.Type">
+    	<sequence>
+    		<element name="Citta" type="string"></element>
+    		<element name="Indirizzo" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DatiNegozioCompleto.Type">
+    	<sequence>
+    		<element name="ID_Negozio" type="int"></element>
+    		<element name="citta" type="string"></element>
+    		<element name="Indirizzo" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="RequestAdd" type="tns:DatiNegozio.Type"></element>
+
+    <complexType name="ListaNegozi.Type">
+    	<sequence>
+    		<element name="Negozi" type="tns:DatiNegozioCompleto.Type" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ResponseAdd.Type">
+    	<sequence>
+    		<element name="Response" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+
+    <element name="ResponseSelect" type="tns:ListaNegozi.Type"></element>
+
+    <element name="RequestDelete" type="tns:RequesteDelete.Type"></element>
+
+    <complexType name="RequesteDelete.Type">
+    	<sequence>
+    		<element name="ID_Negozio" type="int"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="RequesteModify" type="tns:DatiNegozioCompleto.Type"></element>
+</schema>

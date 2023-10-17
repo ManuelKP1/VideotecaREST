@@ -1,0 +1,62 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "AddRegistri",
+    "description" : "AddRegistri service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/addregistri" : {
+      "post" : {
+        "summary" : "postAddRegistri",
+        "description" : "postAddRegistri",
+        "operationId" : "Add",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/RequestAdd"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseAdd to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseAdd"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "RequestAdd" : {
+      "type" : "object",
+      "required" : [ "Nome", "Cognome" ],
+      "properties" : {
+        "Nome" : {
+          "type" : "string"
+        },
+        "Cognome" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ResponseAdd" : {
+      "type" : "object",
+      "required" : [ "Response" ],
+      "properties" : {
+        "Response" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

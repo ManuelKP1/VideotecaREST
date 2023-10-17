@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Anagrafica" xmlns:tns="http://www.example.org/Anagrafica" elementFormDefault="qualified">
+
+    <element name="RequestAdd" type="tns:DatiAnagrafici.Type"></element>
+
+    <complexType name="DatiAnagrafici.Type">
+    	<sequence>
+    		<element name="Nome" type="string"></element>
+    		<element name="Cognome" type="string"></element>
+    		<element name="DataNascita" type="date"></element>
+    		<element name="Citta" type="string"></element>
+    		<element name="Indirizzo" type="string"></element>
+    		<element name="Email" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+
+    <complexType name="ResponseAdd.Type">
+    	<sequence>
+    		<element name="Response" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Select.Type">
+    	<sequence>
+    		<element name="Dati" type="tns:DatiAnagrafici.Type" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+    
+    <element name="ResponseSelect" type="tns:Select.Type"></element>
+
+    <element name="RequestDelete" type="tns:RequestDelete.Type"></element>
+
+    <complexType name="RequestDelete.Type">
+    	<sequence>
+    		<element name="Email" type="string"></element>
+    	</sequence>
+    </complexType>
+</schema>

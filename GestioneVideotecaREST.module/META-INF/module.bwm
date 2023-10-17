@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_BgnHoGzHEe6qZ_-8iKYSTA" targetNamespace="http://tns.tibco.com/bw/composite/GestioneVideotecaREST.module" name="GestioneVideotecaREST.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_8jdlQGzTEe6qZ_-8iKYSTA" name="addregistri" promote="ComponentAddRegistri/addregistri">
+    <sca:interface.wsdl xmi:id="_8jdlRGzTEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017120005PLT#wsdl.interface(addregistri)" scaext:wsdlLocation="../Processes/Registi/Integrazione/AddRegistri.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_8jlhEGzTEe6qZ_-8iKYSTA" name="RestService4" path="/addregistri" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="AddRegistri" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Registi.Integrazione.AddRegistri-AddRegistri.json">
+      <operation xmi:id="_8jmIIGzTEe6qZ_-8iKYSTA" operationName="post" nickname="Add" httpMethod="POST" notes="postAddRegistri" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_8juD8GzTEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_8jlhEWzTEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_8jmIIWzTEe6qZ_-8iKYSTA" bindingName="RestService4"/>
+  </sca:service>
+  <sca:service xmi:id="_FSBbYmzVEe6qZ_-8iKYSTA" name="selectregisti" promote="ComponentSelectRegisti/selectregisti">
+    <sca:interface.wsdl xmi:id="_FSJ-QGzVEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017120813PLT#wsdl.interface(selectregisti)" scaext:wsdlLocation="../Processes/Registi/Integrazione/SelectRegisti.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_FSR6EGzVEe6qZ_-8iKYSTA" name="RestService5" path="/selectregisti" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="SelectRegisti" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Registi.Integrazione.SelectRegisti-SelectRegisti.json">
+      <operation xmi:id="_FSShIGzVEe6qZ_-8iKYSTA" operationName="get" nickname="SelectRegisti" httpMethod="GET" notes="getSelectRegisti" responseStyle="element" requestStyle="element" outputPartName="ResponseSelect">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_FTeM4GzVEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_FSR6EWzVEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_FSShIWzVEe6qZ_-8iKYSTA" bindingName="RestService5"/>
+  </sca:service>
+  <sca:service xmi:id="_ehISsmzWEe6qZ_-8iKYSTA" name="deleteregista" promote="ComponentDeleteRegista/deleteregista">
+    <sca:interface.wsdl xmi:id="_ehIStmzWEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017121812PLT#wsdl.interface(deleteregista)" scaext:wsdlLocation="../Processes/Registi/Integrazione/DeleteRegista.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_ehQOgGzWEe6qZ_-8iKYSTA" name="RestService6" path="/deleteregista" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="DeleteRegista" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Registi.Integrazione.DeleteRegista-DeleteRegista.json">
+      <operation xmi:id="_ehQ1kGzWEe6qZ_-8iKYSTA" operationName="post" nickname="post-deleteregista" httpMethod="POST" notes="postDeleteRegista" responseStyle="element" requestStyle="element" outputPartName="ResponseDelete">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_ehamkGzWEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_ehQOgWzWEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_ehQ1kWzWEe6qZ_-8iKYSTA" bindingName="RestService6"/>
+  </sca:service>
+  <sca:service xmi:id="_l0vNwmzXEe6qZ_-8iKYSTA" name="modifyregista" promote="ComponentModifyRegista/modifyregista">
+    <sca:interface.wsdl xmi:id="_l0vNxmzXEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017122610PLT#wsdl.interface(modifyregista)" scaext:wsdlLocation="../Processes/Registi/Integrazione/ModifyRegista.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_l03JkGzXEe6qZ_-8iKYSTA" name="RestService7" path="/modifyregista" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="ModifyRegista" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Registi.Integrazione.ModifyRegista-ModifyRegista.json">
+      <operation xmi:id="_l03JkmzXEe6qZ_-8iKYSTA" operationName="put" nickname="put-modifyregista" httpMethod="PUT" notes="putModifyRegista" responseStyle="element" requestStyle="element" outputPartName="ResponseModify">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_l1CvwGzXEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_l03JkWzXEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_l03Jk2zXEe6qZ_-8iKYSTA" bindingName="RestService7"/>
+  </sca:service>
+  <sca:service xmi:id="_lyCNImzZEe6qZ_-8iKYSTA" name="addprenotazioni" promote="ComponentAddPrenotazioni/addprenotazioni">
+    <sca:interface.wsdl xmi:id="_lyC0MGzZEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017124029PLT#wsdl.interface(addprenotazioni)" scaext:wsdlLocation="../Processes/Prenotazioni/Integrazione/AddPrenotazioni.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_lyKwAGzZEe6qZ_-8iKYSTA" name="RestService8" path="/addprenotazioni" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="AddPrenotazioni" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Prenotazioni.Integrazione.AddPrenotazioni-AddPrenotazioni.json">
+      <operation xmi:id="_lyNMQGzZEe6qZ_-8iKYSTA" operationName="post" nickname="AddPrenotazioni" httpMethod="POST" notes="postAddPrenotazioni" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_lzbUQGzZEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_lyKwAWzZEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_lyNMQWzZEe6qZ_-8iKYSTA" bindingName="RestService8"/>
+  </sca:service>
+  <sca:service xmi:id="_FE_5wmzaEe6qZ_-8iKYSTA" name="selectprenotazioni" promote="ComponentSelectPrenotazioni/selectprenotazioni">
+    <sca:interface.wsdl xmi:id="_FFAg0GzaEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017124359PLT#wsdl.interface(selectprenotazioni)" scaext:wsdlLocation="../Processes/Prenotazioni/Integrazione/SelectPrenotazioni.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_FFIcoGzaEe6qZ_-8iKYSTA" name="RestService9" path="/selectprenotazioni" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="SelectPrenotazioni" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Prenotazioni.Integrazione.SelectPrenotazioni-SelectPrenotazioni.json">
+      <operation xmi:id="_FFMHAGzaEe6qZ_-8iKYSTA" operationName="get" nickname="SelectPrenotazioni" httpMethod="GET" notes="getSelectPrenotazioni" responseStyle="element" requestStyle="element" outputPartName="ResponseSelect">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_FFQ_gGzaEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_FFIcoWzaEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_FFMHAWzaEe6qZ_-8iKYSTA" bindingName="RestService9"/>
+  </sca:service>
+  <sca:service xmi:id="_TjQ6ImzaEe6qZ_-8iKYSTA" name="modifyprenotazioni" promote="ComponentModifyPrenotazioni/modifyprenotazioni">
+    <sca:interface.wsdl xmi:id="_TjQ6JmzaEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017124536PLT#wsdl.interface(modifyprenotazioni)" scaext:wsdlLocation="../Processes/Prenotazioni/Integrazione/ModifyPrenotazioni.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_TjZdAGzaEe6qZ_-8iKYSTA" name="RestService10" path="/modifyprenotazioni" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="ModifyPrenotazioni" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Prenotazioni.Integrazione.ModifyPrenotazioni-ModifyPrenotazioni.json">
+      <operation xmi:id="_TjaEEGzaEe6qZ_-8iKYSTA" operationName="put" nickname="put-modifyprenotazioni" httpMethod="PUT" notes="putModifyPrenotazioni" responseStyle="element" requestStyle="element" outputPartName="ResponseModify">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_TkfCIGzaEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_TjZdAWzaEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_TjaEEWzaEe6qZ_-8iKYSTA" bindingName="RestService10"/>
+  </sca:service>
+  <sca:service xmi:id="_b2rFUmzbEe6qZ_-8iKYSTA" name="deleteregisti" promote="ComponentDeleteRegisti/deleteregisti">
+    <sca:interface.wsdl xmi:id="_b2rsYmzbEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017125341PLT#wsdl.interface(deleteregisti)" scaext:wsdlLocation="../Processes/Prenotazioni/Integrazione/DeleteRegisti.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_b2zoMGzbEe6qZ_-8iKYSTA" name="RestService11" path="/deleteregisti" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="DeleteRegisti" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Prenotazioni.Integrazione.DeleteRegisti-DeleteRegisti.json">
+      <operation xmi:id="_b2zoMmzbEe6qZ_-8iKYSTA" operationName="post" nickname="DeleteRegisti" httpMethod="POST" notes="postDeleteRegisti" responseStyle="element" requestStyle="element" outputPartName="ResponseDelete">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_b3BqoGzbEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_b2zoMWzbEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_b2zoM2zbEe6qZ_-8iKYSTA" bindingName="RestService11"/>
+  </sca:service>
+  <sca:service xmi:id="_aoFU0GznEe6qZ_-8iKYSTA" name="addfilm" promote="ComponentAddFilm/addfilm">
+    <sca:interface.wsdl xmi:id="_aoFU1GznEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017141927PLT#wsdl.interface(addfilm)" scaext:wsdlLocation="../Processes/DataFilms/Integrazione/AddFilm.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_aoN3sGznEe6qZ_-8iKYSTA" name="RestService12" path="/addfilm" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="AddFilm" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/DataFilms.Integrazione.AddFilm-AddFilm.json">
+      <operation xmi:id="_aoN3smznEe6qZ_-8iKYSTA" operationName="post" nickname="post-addfilm" httpMethod="POST" notes="postAddFilm" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_apUq8GznEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_aoN3sWznEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_aoN3s2znEe6qZ_-8iKYSTA" bindingName="RestService12"/>
+  </sca:service>
+  <sca:service xmi:id="_P45_4mzoEe6qZ_-8iKYSTA" name="selectfilm" promote="ComponentSelectFilm/selectfilm">
+    <sca:interface.wsdl xmi:id="_P45_5mzoEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017142524PLT#wsdl.interface(selectfilm)" scaext:wsdlLocation="../Processes/DataFilms/Integrazione/SelectFilm.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_P5B7sGzoEe6qZ_-8iKYSTA" name="RestService13" path="/selectfilm" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="SelectFilm" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/DataFilms.Integrazione.SelectFilm-SelectFilm.json">
+      <operation xmi:id="_P5DJ0GzoEe6qZ_-8iKYSTA" operationName="get" nickname="SelectFilm" httpMethod="GET" notes="getSelectFilm" responseStyle="element" requestStyle="element" outputPartName="ResponseSelect">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_P6R44GzoEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_P5B7sWzoEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_P5DJ0WzoEe6qZ_-8iKYSTA" bindingName="RestService13"/>
+  </sca:service>
+  <sca:service xmi:id="_K9zF4mzqEe6qZ_-8iKYSTA" name="deletefilm" promote="ComponentDeleteFilm/deletefilm">
+    <sca:interface.wsdl xmi:id="_K9zs8GzqEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017143910PLT#wsdl.interface(deletefilm)" scaext:wsdlLocation="../Processes/DataFilms/Integrazione/DeleteFilm.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_K97BsGzqEe6qZ_-8iKYSTA" name="RestService14" path="/deletefilm" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="DeleteFilm" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/DataFilms.Integrazione.DeleteFilm-DeleteFilm.json">
+      <operation xmi:id="_K97owGzqEe6qZ_-8iKYSTA" operationName="post" nickname="DeleteFilm" httpMethod="POST" notes="postDeleteFilm" responseStyle="element" requestStyle="element" outputPartName="ResponseDelete">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_K-Px0GzqEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_K97BsWzqEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_K97owWzqEe6qZ_-8iKYSTA" bindingName="RestService14"/>
+  </sca:service>
+  <sca:service xmi:id="_CTbhUmzrEe6qZ_-8iKYSTA" name="modifyfilm" promote="ComponentModifyFilm/modifyfilm">
+    <sca:interface.wsdl xmi:id="_CTbhVmzrEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017144522PLT#wsdl.interface(modifyfilm)" scaext:wsdlLocation="../Processes/DataFilms/Integrazione/ModifyFilm.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_CTjdIGzrEe6qZ_-8iKYSTA" name="RestService15" path="/modifyfilm" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="ModifyFilm" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/DataFilms.Integrazione.ModifyFilm-ModifyFilm.json">
+      <operation xmi:id="_CTjdImzrEe6qZ_-8iKYSTA" operationName="put" nickname="put-modifyfilm" httpMethod="PUT" notes="putModifyFilm" responseStyle="element" requestStyle="element" outputPartName="ResponseModify">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_CT2_IGzrEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_CTjdIWzrEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_CTjdI2zrEe6qZ_-8iKYSTA" bindingName="RestService15"/>
+  </sca:service>
+  <sca:service xmi:id="_mkb4cmzvEe6qZ_-8iKYSTA" name="addnegozio" promote="ComponentAddNegozio/addnegozio">
+    <sca:interface.wsdl xmi:id="_mkb4dmzvEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017151803PLT#wsdl.interface(addnegozio)" scaext:wsdlLocation="../Processes/Negozi/Integrazione/AddNegozio.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_mkkbUGzvEe6qZ_-8iKYSTA" name="RestService16" path="/addnegozio" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="AddNegozio" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Negozi.Integrazione.AddNegozio-AddNegozio.json">
+      <operation xmi:id="_mkkbUmzvEe6qZ_-8iKYSTA" operationName="post" nickname="AddNegozio" httpMethod="POST" notes="postAddNegozio" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_mloyUGzvEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_mkkbUWzvEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_mkkbU2zvEe6qZ_-8iKYSTA" bindingName="RestService16"/>
+  </sca:service>
+  <sca:service xmi:id="_6gR70mzvEe6qZ_-8iKYSTA" name="selectnegozio" promote="ComponentSelectNegozio/selectnegozio">
+    <sca:interface.wsdl xmi:id="_6gSi4mzvEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017152017PLT#wsdl.interface(selectnegozio)" scaext:wsdlLocation="../Processes/Negozi/Integrazione/SelectNegozio.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_6gcT4GzvEe6qZ_-8iKYSTA" name="RestService17" path="/selectnegozio" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="SelectNegozio" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Negozi.Integrazione.SelectNegozio-SelectNegozio.json">
+      <operation xmi:id="_6gcT4mzvEe6qZ_-8iKYSTA" operationName="get" nickname="SelectNegozio" httpMethod="GET" notes="getSelectNegozio" responseStyle="element" requestStyle="element" outputPartName="ResponseSelect">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_6hbyYGzvEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_6gcT4WzvEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_6gcT42zvEe6qZ_-8iKYSTA" bindingName="RestService17"/>
+  </sca:service>
+  <sca:service xmi:id="_ILRsMmzwEe6qZ_-8iKYSTA" name="modifynegozio" promote="ComponentModifyNegozio/modifynegozio">
+    <sca:interface.wsdl xmi:id="_ILRsNmzwEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017152149PLT#wsdl.interface(modifynegozio)" scaext:wsdlLocation="../Processes/Negozi/Integrazione/ModifyNegozio.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_ILbdMGzwEe6qZ_-8iKYSTA" name="RestService18" path="/modifynegozio" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="ModifyNegozio" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Negozi.Integrazione.ModifyNegozio-ModifyNegozio.json">
+      <operation xmi:id="_ILcEQGzwEe6qZ_-8iKYSTA" operationName="put" nickname="put-modifynegozio" httpMethod="PUT" notes="putModifyNegozio" responseStyle="element" requestStyle="element" outputPartName="ResponseModify">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_IMhCUGzwEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_ILbdMWzwEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_ILcEQWzwEe6qZ_-8iKYSTA" bindingName="RestService18"/>
+  </sca:service>
+  <sca:service xmi:id="_zfDC0GzxEe6qZ_-8iKYSTA" name="deletenegozio" promote="ComponentDeleteNegozio/deletenegozio">
+    <sca:interface.wsdl xmi:id="_zfDC1GzxEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017153349PLT#wsdl.interface(deletenegozio)" scaext:wsdlLocation="../Processes/Negozi/Integrazione/DeleteNegozio.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_zfMMwGzxEe6qZ_-8iKYSTA" name="RestService19" path="/deletenegozio" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="DeleteNegozio" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Negozi.Integrazione.DeleteNegozio-DeleteNegozio.json">
+      <operation xmi:id="_zfMMwmzxEe6qZ_-8iKYSTA" operationName="post" nickname="post-deletenegozio" httpMethod="POST" notes="postDeleteNegozio" responseStyle="element" requestStyle="element" outputPartName="ResponseDelete">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_zgSY8GzxEe6qZ_-8iKYSTA"/>
+      <advancedConfig xmi:id="_zfMMwWzxEe6qZ_-8iKYSTA" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_zfMMw2zxEe6qZ_-8iKYSTA" bindingName="RestService19"/>
+  </sca:service>
+  <sca:property xmi:id="_DDLtoGzHEe6qZ_-8iKYSTA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_DDVeoGzHEe6qZ_-8iKYSTA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_DDZJAGzHEe6qZ_-8iKYSTA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_DDcMUGzHEe6qZ_-8iKYSTA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_DDf2sGzHEe6qZ_-8iKYSTA" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_DDiS8GzHEe6qZ_-8iKYSTA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_DDlWQGzHEe6qZ_-8iKYSTA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_DDqOwGzHEe6qZ_-8iKYSTA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_DDtSEGzHEe6qZ_-8iKYSTA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_8jYswGzTEe6qZ_-8iKYSTA" name="ComponentAddRegistri" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_8jYswWzTEe6qZ_-8iKYSTA" processName="Registi.Integrazione.AddRegistri"/>
+    <sca:service xmi:id="_8jc-MGzTEe6qZ_-8iKYSTA" name="addregistri">
+      <sca:interface.wsdl xmi:id="_8jc-MWzTEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017120005PLT#wsdl.interface(addregistri)" scaext:wsdlLocation="../Processes/Registi/Integrazione/AddRegistri.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_FR9xAGzVEe6qZ_-8iKYSTA" name="ComponentSelectRegisti" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_FR9xAWzVEe6qZ_-8iKYSTA" processName="Registi.Integrazione.SelectRegisti"/>
+    <sca:service xmi:id="_FSBbYGzVEe6qZ_-8iKYSTA" name="selectregisti">
+      <sca:interface.wsdl xmi:id="_FSBbYWzVEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017120813PLT#wsdl.interface(selectregisti)" scaext:wsdlLocation="../Processes/Registi/Integrazione/SelectRegisti.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_ehEBQGzWEe6qZ_-8iKYSTA" name="ComponentDeleteRegista" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ehEBQWzWEe6qZ_-8iKYSTA" processName="Registi.Integrazione.DeleteRegista"/>
+    <sca:service xmi:id="_ehISsGzWEe6qZ_-8iKYSTA" name="deleteregista">
+      <sca:interface.wsdl xmi:id="_ehISsWzWEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017121812PLT#wsdl.interface(deleteregista)" scaext:wsdlLocation="../Processes/Registi/Integrazione/DeleteRegista.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_l0rjYGzXEe6qZ_-8iKYSTA" name="ComponentModifyRegista" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_l0rjYWzXEe6qZ_-8iKYSTA" processName="Registi.Integrazione.ModifyRegista"/>
+    <sca:service xmi:id="_l0vNwGzXEe6qZ_-8iKYSTA" name="modifyregista">
+      <sca:interface.wsdl xmi:id="_l0vNwWzXEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017122610PLT#wsdl.interface(modifyregista)" scaext:wsdlLocation="../Processes/Registi/Integrazione/ModifyRegista.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_lx-iwGzZEe6qZ_-8iKYSTA" name="ComponentAddPrenotazioni" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_lx-iwWzZEe6qZ_-8iKYSTA" processName="Prenotazioni.Integrazione.AddPrenotazioni"/>
+    <sca:service xmi:id="_lyCNIGzZEe6qZ_-8iKYSTA" name="addprenotazioni">
+      <sca:interface.wsdl xmi:id="_lyCNIWzZEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017124029PLT#wsdl.interface(addprenotazioni)" scaext:wsdlLocation="../Processes/Prenotazioni/Integrazione/AddPrenotazioni.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_FE8PYGzaEe6qZ_-8iKYSTA" name="ComponentSelectPrenotazioni" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_FE8PYWzaEe6qZ_-8iKYSTA" processName="Prenotazioni.Integrazione.SelectPrenotazioni"/>
+    <sca:service xmi:id="_FE_5wGzaEe6qZ_-8iKYSTA" name="selectprenotazioni">
+      <sca:interface.wsdl xmi:id="_FE_5wWzaEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017124359PLT#wsdl.interface(selectprenotazioni)" scaext:wsdlLocation="../Processes/Prenotazioni/Integrazione/SelectPrenotazioni.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_TjMBoGzaEe6qZ_-8iKYSTA" name="ComponentModifyPrenotazioni" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_TjMBoWzaEe6qZ_-8iKYSTA" processName="Prenotazioni.Integrazione.ModifyPrenotazioni"/>
+    <sca:service xmi:id="_TjQ6IGzaEe6qZ_-8iKYSTA" name="modifyprenotazioni">
+      <sca:interface.wsdl xmi:id="_TjQ6IWzaEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017124536PLT#wsdl.interface(modifyprenotazioni)" scaext:wsdlLocation="../Processes/Prenotazioni/Integrazione/ModifyPrenotazioni.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_b2na8GzbEe6qZ_-8iKYSTA" name="ComponentDeleteRegisti" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_b2na8WzbEe6qZ_-8iKYSTA" processName="Prenotazioni.Integrazione.DeleteRegisti"/>
+    <sca:service xmi:id="_b2rFUGzbEe6qZ_-8iKYSTA" name="deleteregisti">
+      <sca:interface.wsdl xmi:id="_b2rFUWzbEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017125341PLT#wsdl.interface(deleteregisti)" scaext:wsdlLocation="../Processes/Prenotazioni/Integrazione/DeleteRegisti.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_aoAcUGznEe6qZ_-8iKYSTA" name="ComponentAddFilm" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_aoAcUWznEe6qZ_-8iKYSTA" processName="DataFilms.Integrazione.AddFilm"/>
+    <sca:service xmi:id="_aoEtwGznEe6qZ_-8iKYSTA" name="addfilm">
+      <sca:interface.wsdl xmi:id="_aoEtwWznEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017141927PLT#wsdl.interface(addfilm)" scaext:wsdlLocation="../Processes/DataFilms/Integrazione/AddFilm.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_P41HYGzoEe6qZ_-8iKYSTA" name="ComponentSelectFilm" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_P41HYWzoEe6qZ_-8iKYSTA" processName="DataFilms.Integrazione.SelectFilm"/>
+    <sca:service xmi:id="_P45_4GzoEe6qZ_-8iKYSTA" name="selectfilm">
+      <sca:interface.wsdl xmi:id="_P45_4WzoEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017142524PLT#wsdl.interface(selectfilm)" scaext:wsdlLocation="../Processes/DataFilms/Integrazione/SelectFilm.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_K9u0cGzqEe6qZ_-8iKYSTA" name="ComponentDeleteFilm" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_K9u0cWzqEe6qZ_-8iKYSTA" processName="DataFilms.Integrazione.DeleteFilm"/>
+    <sca:service xmi:id="_K9zF4GzqEe6qZ_-8iKYSTA" name="deletefilm">
+      <sca:interface.wsdl xmi:id="_K9zF4WzqEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017143910PLT#wsdl.interface(deletefilm)" scaext:wsdlLocation="../Processes/DataFilms/Integrazione/DeleteFilm.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_CTWo0GzrEe6qZ_-8iKYSTA" name="ComponentModifyFilm" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_CTWo0WzrEe6qZ_-8iKYSTA" processName="DataFilms.Integrazione.ModifyFilm"/>
+    <sca:service xmi:id="_CTbhUGzrEe6qZ_-8iKYSTA" name="modifyfilm">
+      <sca:interface.wsdl xmi:id="_CTbhUWzrEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017144522PLT#wsdl.interface(modifyfilm)" scaext:wsdlLocation="../Processes/DataFilms/Integrazione/ModifyFilm.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_mkXnAGzvEe6qZ_-8iKYSTA" name="ComponentAddNegozio" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_mkXnAWzvEe6qZ_-8iKYSTA" processName="Negozi.Integrazione.AddNegozio"/>
+    <sca:service xmi:id="_mkb4cGzvEe6qZ_-8iKYSTA" name="addnegozio">
+      <sca:interface.wsdl xmi:id="_mkb4cWzvEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017151803PLT#wsdl.interface(addnegozio)" scaext:wsdlLocation="../Processes/Negozi/Integrazione/AddNegozio.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_6gNqYGzvEe6qZ_-8iKYSTA" name="ComponentSelectNegozio" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_6gNqYWzvEe6qZ_-8iKYSTA" processName="Negozi.Integrazione.SelectNegozio"/>
+    <sca:service xmi:id="_6gR70GzvEe6qZ_-8iKYSTA" name="selectnegozio">
+      <sca:interface.wsdl xmi:id="_6gR70WzvEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017152017PLT#wsdl.interface(selectnegozio)" scaext:wsdlLocation="../Processes/Negozi/Integrazione/SelectNegozio.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_ILMzsGzwEe6qZ_-8iKYSTA" name="ComponentModifyNegozio" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ILMzsWzwEe6qZ_-8iKYSTA" processName="Negozi.Integrazione.ModifyNegozio"/>
+    <sca:service xmi:id="_ILRsMGzwEe6qZ_-8iKYSTA" name="modifynegozio">
+      <sca:interface.wsdl xmi:id="_ILRsMWzwEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017152149PLT#wsdl.interface(modifynegozio)" scaext:wsdlLocation="../Processes/Negozi/Integrazione/ModifyNegozio.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_ze9jQGzxEe6qZ_-8iKYSTA" name="ComponentDeleteNegozio" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ze9jQWzxEe6qZ_-8iKYSTA" processName="Negozi.Integrazione.DeleteNegozio"/>
+    <sca:service xmi:id="_zfCbwGzxEe6qZ_-8iKYSTA" name="deletenegozio">
+      <sca:interface.wsdl xmi:id="_zfCbwWzxEe6qZ_-8iKYSTA" interface="http://xmlns.example.com/20231017153349PLT#wsdl.interface(deletenegozio)" scaext:wsdlLocation="../Processes/Negozi/Integrazione/DeleteNegozio.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

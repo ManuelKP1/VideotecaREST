@@ -1,0 +1,59 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "SelectPrenotazioni",
+    "description" : "SelectPrenotazioni service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/selectprenotazioni" : {
+      "get" : {
+        "summary" : "getSelectPrenotazioni",
+        "description" : "getSelectPrenotazioni",
+        "operationId" : "SelectPrenotazioni",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseSelect to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseSelect"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "ResponseSelect" : {
+      "type" : "object",
+      "required" : [ "Prenotazione" ],
+      "properties" : {
+        "Prenotazione" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Prenotazione",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "Prenotazione" : {
+      "type" : "object",
+      "required" : [ "ID_Film", "email" ],
+      "properties" : {
+        "email" : {
+          "type" : "string"
+        },
+        "ID_Film" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    }
+  }
+}

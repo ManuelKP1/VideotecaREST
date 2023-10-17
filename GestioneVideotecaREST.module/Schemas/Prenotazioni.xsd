@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Prenotazioni" xmlns:tns="http://www.example.org/Prenotazioni" elementFormDefault="qualified">
+
+    <element name="RequestAdd" type="tns:Prenotazione.Type"></element>
+
+    <complexType name="Prenotazione.Type">
+    	<sequence>
+    		<element name="email" type="string"></element>
+    		<element name="ID_Film" type="int"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ResponseAdd.Type">
+    	<sequence>
+    		<element name="reponse" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+
+    <element name="ResponseSelect" type="tns:Prenotazioni.Type"></element>
+
+    <complexType name="Prenotazioni.Type">
+    	<sequence>
+    		<element name="Prenotazione" type="tns:Prenotazione.Type" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+</schema>

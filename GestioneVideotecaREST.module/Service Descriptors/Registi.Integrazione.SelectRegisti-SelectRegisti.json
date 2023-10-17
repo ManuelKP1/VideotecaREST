@@ -1,0 +1,62 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "SelectRegisti",
+    "description" : "SelectRegisti service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/selectregisti" : {
+      "get" : {
+        "summary" : "getSelectRegisti",
+        "description" : "getSelectRegisti",
+        "operationId" : "SelectRegisti",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseSelect to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseSelect"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "ListaRegisti" : {
+      "type" : "object",
+      "required" : [ "ID_Regista", "Nome", "Cognome" ],
+      "properties" : {
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Nome" : {
+          "type" : "string"
+        },
+        "Cognome" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ResponseSelect" : {
+      "type" : "object",
+      "required" : [ "ListaRegisti" ],
+      "properties" : {
+        "ListaRegisti" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ListaRegisti",
+            "uniqueItems" : false
+          }
+        }
+      }
+    }
+  }
+}

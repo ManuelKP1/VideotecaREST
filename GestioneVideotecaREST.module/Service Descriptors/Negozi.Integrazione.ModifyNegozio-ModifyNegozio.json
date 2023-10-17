@@ -1,0 +1,66 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "ModifyNegozio",
+    "description" : "ModifyNegozio service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/modifynegozio" : {
+      "put" : {
+        "summary" : "putModifyNegozio",
+        "description" : "putModifyNegozio",
+        "operationId" : "put-modifynegozio",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/RequesteModify"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseAdd to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseAdd"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "RequesteModify" : {
+      "type" : "object",
+      "required" : [ "ID_Negozio", "Indirizzo", "citta" ],
+      "properties" : {
+        "ID_Negozio" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "citta" : {
+          "type" : "string"
+        },
+        "Indirizzo" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ResponseAdd" : {
+      "type" : "object",
+      "required" : [ "Response" ],
+      "properties" : {
+        "Response" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

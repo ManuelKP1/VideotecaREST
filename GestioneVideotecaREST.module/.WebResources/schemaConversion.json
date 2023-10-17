@@ -1,0 +1,102 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Anagrafica.Integrazione.Add-Add.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Anagrafica"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Anagrafica.Integrazione.Select-Select.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Anagrafica"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Anagrafica.Integrazione.Modify-Modify.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Anagrafica"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Anagrafica.Integrazione.Delete-Delete.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Anagrafica"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Registi.Integrazione.AddRegistri-AddRegistri.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Regista"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Registi.Integrazione.SelectRegisti-SelectRegisti.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Regista"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Registi.Integrazione.DeleteRegista-DeleteRegista.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Regista"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Registi.Integrazione.ModifyRegista-ModifyRegista.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Regista"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Prenotazioni.Integrazione.AddPrenotazioni-AddPrenotazioni.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Prenotazioni"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Prenotazioni.Integrazione.SelectPrenotazioni-SelectPrenotazioni.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Prenotazioni"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Prenotazioni.Integrazione.ModifyPrenotazioni-ModifyPrenotazioni.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Prenotazioni"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Prenotazioni.Integrazione.DeleteRegisti-DeleteRegisti.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Prenotazioni"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/DataFilms.Integrazione.AddFilm-AddFilm.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Film"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/DataFilms.Integrazione.SelectFilm-SelectFilm.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Film"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/DataFilms.Integrazione.DeleteFilm-DeleteFilm.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Film"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/DataFilms.Integrazione.ModifyFilm-ModifyFilm.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Film"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Negozi.Integrazione.AddNegozio-AddNegozio.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Negozio"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Negozi.Integrazione.SelectNegozio-SelectNegozio.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Negozio"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Negozi.Integrazione.ModifyNegozio-ModifyNegozio.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Negozio"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Negozi.Integrazione.DeleteNegozio-DeleteNegozio.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Negozio"
+    }
+]}

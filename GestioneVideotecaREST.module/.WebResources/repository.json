@@ -1,0 +1,85 @@
+{
+    "records": [],
+    "resources": [
+        {
+            "location": "Service Descriptors/Anagrafica.Integrazione.Add-Add.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Anagrafica.Integrazione.Select-Select.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Anagrafica.Integrazione.Modify-Modify.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Anagrafica.Integrazione.Delete-Delete.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Registi.Integrazione.AddRegistri-AddRegistri.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Registi.Integrazione.SelectRegisti-SelectRegisti.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Registi.Integrazione.DeleteRegista-DeleteRegista.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Registi.Integrazione.ModifyRegista-ModifyRegista.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Prenotazioni.Integrazione.AddPrenotazioni-AddPrenotazioni.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Prenotazioni.Integrazione.SelectPrenotazioni-SelectPrenotazioni.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Prenotazioni.Integrazione.ModifyPrenotazioni-ModifyPrenotazioni.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Prenotazioni.Integrazione.DeleteRegisti-DeleteRegisti.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DataFilms.Integrazione.AddFilm-AddFilm.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DataFilms.Integrazione.SelectFilm-SelectFilm.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DataFilms.Integrazione.DeleteFilm-DeleteFilm.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/DataFilms.Integrazione.ModifyFilm-ModifyFilm.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Negozi.Integrazione.AddNegozio-AddNegozio.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Negozi.Integrazione.SelectNegozio-SelectNegozio.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Negozi.Integrazione.ModifyNegozio-ModifyNegozio.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Negozi.Integrazione.DeleteNegozio-DeleteNegozio.json",
+            "type": "generated"
+        }
+    ]
+}
