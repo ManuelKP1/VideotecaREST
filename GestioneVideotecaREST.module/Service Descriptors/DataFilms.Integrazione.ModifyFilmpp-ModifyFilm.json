@@ -1,0 +1,82 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "ModifyFilm",
+    "description" : "ModifyFilm service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/modifyfilm" : {
+      "put" : {
+        "summary" : "putModifyFilm",
+        "description" : "putModifyFilm",
+        "operationId" : "put-modifyfilm",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/RequestModify"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseAdd to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseAdd"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "RequestModify" : {
+      "type" : "object",
+      "required" : [ "Durata", "Genere", "ID_Film", "ID_Regista", "Copie", "DataUscita", "Nome" ],
+      "properties" : {
+        "ID_Film" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Nome" : {
+          "type" : "string"
+        },
+        "Durata" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "DataUscita" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Copie" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Genere" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ResponseAdd" : {
+      "type" : "object",
+      "required" : [ "Response" ],
+      "properties" : {
+        "Response" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
