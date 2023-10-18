@@ -390,7 +390,7 @@
         productVersion="6.9.1 V17 2023-05-19" scalable="true"
         singleton="true" stateless="false" type="IT"/>
     <tibex:ProcessInterface context=""
-        input="{http://www.example.org/Anagrafica}RequestAdd" output=""/>
+        input="{http://www.example.org/Anagrafica}RequestAdd" output="{http://www.example.org/Anagrafica}ResponseAdd"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"

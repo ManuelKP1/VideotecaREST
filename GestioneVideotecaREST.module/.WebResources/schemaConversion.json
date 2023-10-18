@@ -98,5 +98,10 @@
         "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Negozi.Integrazione.DeleteNegozio-DeleteNegozio.json",
         "conversionType": "linked",
         "xsdSchemaTargetNamespace": "http://www.example.org/Negozio"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Main.Anagrafica-Anagrafica.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Anagrafica"
     }
 ]}

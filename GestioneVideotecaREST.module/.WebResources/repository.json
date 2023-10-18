@@ -104,6 +104,10 @@
         {
             "location": "Service Descriptors/Negozi.Integrazione.DeleteNegoziopp-DeleteNegozio.json",
             "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Main.Anagrafica-Anagrafica.json",
+            "type": "generated"
         }
     ]
 }

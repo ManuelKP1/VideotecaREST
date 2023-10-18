@@ -1,0 +1,193 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Anagrafica",
+    "description" : "Anagrafica service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/anagrafica/{Email}" : {
+      "post" : {
+        "summary" : "postAnagrafica",
+        "description" : "postAnagrafica",
+        "operationId" : "post-anagrafica",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/RequestAdd"
+          },
+          "required" : true
+        }, {
+          "name" : "Email",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseAdd to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseAdd"
+            }
+          }
+        }
+      },
+      "get" : {
+        "summary" : "getAnagrafica",
+        "description" : "getAnagrafica",
+        "operationId" : "get-anagrafica",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Email",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseSelect to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseSelect"
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "putAnagrafica",
+        "description" : "putAnagrafica",
+        "operationId" : "put-anagrafica",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/RequestAdd"
+          },
+          "required" : true
+        }, {
+          "name" : "Email",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseAdd to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseAdd"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "deleteAnagrafica",
+        "description" : "deleteAnagrafica",
+        "operationId" : "delete-anagrafica",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "Email",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a ResponseAdd to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseAdd"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Dati" : {
+      "type" : "object",
+      "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
+      "properties" : {
+        "Nome" : {
+          "type" : "string"
+        },
+        "Cognome" : {
+          "type" : "string"
+        },
+        "DataNascita" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "Citta" : {
+          "type" : "string"
+        },
+        "Indirizzo" : {
+          "type" : "string"
+        },
+        "Email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RequestAdd" : {
+      "type" : "object",
+      "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
+      "properties" : {
+        "Nome" : {
+          "type" : "string"
+        },
+        "Cognome" : {
+          "type" : "string"
+        },
+        "DataNascita" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "Citta" : {
+          "type" : "string"
+        },
+        "Indirizzo" : {
+          "type" : "string"
+        },
+        "Email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ResponseSelect" : {
+      "type" : "object",
+      "required" : [ "Dati" ],
+      "properties" : {
+        "Dati" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Dati",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "ResponseAdd" : {
+      "type" : "object",
+      "required" : [ "Response" ],
+      "properties" : {
+        "Response" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

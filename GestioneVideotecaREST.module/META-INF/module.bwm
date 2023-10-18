@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:id="_BgnHoGzHEe6qZ_-8iKYSTA" targetNamespace="http://tns.tibco.com/bw/composite/GestioneVideotecaREST.module" name="GestioneVideotecaREST.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_BgnHoGzHEe6qZ_-8iKYSTA" targetNamespace="http://tns.tibco.com/bw/composite/GestioneVideotecaREST.module" name="GestioneVideotecaREST.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_Dey0Em2iEe61XZWOz3q7xg" name="anagrafica" promote="ComponentAnagrafica/anagrafica">
+    <sca:interface.wsdl xmi:id="_Dey0Fm2iEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231018123256PLT#wsdl.interface(anagrafica)" scaext:wsdlLocation="../Processes/Main/Anagrafica.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_DezbIG2iEe61XZWOz3q7xg" name="RestService" path="/anagrafica/{Email}" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="Anagrafica" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Main.Anagrafica-Anagrafica.json">
+      <operation xmi:id="_DezbIm2iEe61XZWOz3q7xg" operationName="post" nickname="post-anagrafica" httpMethod="POST" notes="postAnagrafica" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_DezbI22iEe61XZWOz3q7xg" operationName="get" nickname="get-anagrafica" httpMethod="GET" notes="getAnagrafica" responseStyle="element" outputPartName="ResponseSelect">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_DezbJG2iEe61XZWOz3q7xg" operationName="put" nickname="put-anagrafica" httpMethod="PUT" notes="putAnagrafica" responseStyle="element" requestStyle="element" outputPartName="ResponseModify">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_DezbJW2iEe61XZWOz3q7xg" operationName="delete" nickname="delete-anagrafica" httpMethod="DELETE" notes="deleteAnagrafica" responseStyle="element" outputPartName="ResponseDelete">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_DfAPcG2iEe61XZWOz3q7xg">
+        <parameterMapping xmi:id="_DfAPcW2iEe61XZWOz3q7xg" parameterName="Email" parameterType="Path" required="true" description=""/>
+      </parameters>
+      <advancedConfig xmi:id="_DezbIW2iEe61XZWOz3q7xg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_DezbJm2iEe61XZWOz3q7xg" bindingName="RestService"/>
+  </sca:service>
   <sca:property xmi:id="_DDLtoGzHEe6qZ_-8iKYSTA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_DDVeoGzHEe6qZ_-8iKYSTA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_DDZJAGzHEe6qZ_-8iKYSTA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
@@ -9,4 +35,10 @@
   <sca:property xmi:id="_DDlWQGzHEe6qZ_-8iKYSTA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_DDqOwGzHEe6qZ_-8iKYSTA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_DDtSEGzHEe6qZ_-8iKYSTA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_s4wbUG2hEe61XZWOz3q7xg" name="ComponentAnagrafica" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_s4wbUW2hEe61XZWOz3q7xg" processName="Main.Anagrafica"/>
+    <sca:service xmi:id="_Dey0EG2iEe61XZWOz3q7xg" name="anagrafica">
+      <sca:interface.wsdl xmi:id="_Dey0EW2iEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231018123256PLT#wsdl.interface(anagrafica)" scaext:wsdlLocation="../Processes/Main/Anagrafica.bwp"/>
+    </sca:service>
+  </sca:component>
 </sca:composite>
