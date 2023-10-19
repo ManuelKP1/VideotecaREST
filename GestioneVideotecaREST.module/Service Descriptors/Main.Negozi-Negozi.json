@@ -2,18 +2,18 @@
   "swagger" : "2.0",
   "info" : {
     "version" : "1.0",
-    "title" : "Anagrafica",
-    "description" : "Anagrafica service"
+    "title" : "Negozi",
+    "description" : "Negozi service"
   },
   "host" : "localhost:8080",
   "basePath" : "/",
   "schemes" : [ "http" ],
   "paths" : {
-    "/anagrafica/" : {
+    "/negozi" : {
       "post" : {
-        "summary" : "postAnagrafica",
-        "description" : "postAnagrafica",
-        "operationId" : "post-anagrafica",
+        "summary" : "postNegozi",
+        "description" : "postNegozi",
+        "operationId" : "post-negozi",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -35,9 +35,9 @@
         }
       },
       "get" : {
-        "summary" : "getAnagrafica",
-        "description" : "getAnagrafica",
-        "operationId" : "get-anagrafica",
+        "summary" : "getNegozi",
+        "description" : "getNegozi",
+        "operationId" : "get-negozi",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ ],
@@ -51,9 +51,9 @@
         }
       },
       "put" : {
-        "summary" : "putAnagrafica",
-        "description" : "putAnagrafica",
-        "operationId" : "put-anagrafica",
+        "summary" : "putNegozi",
+        "description" : "putNegozi",
+        "operationId" : "put-negozi",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -61,7 +61,7 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequesteModify"
           },
           "required" : true
         } ],
@@ -75,17 +75,18 @@
         }
       },
       "delete" : {
-        "summary" : "deleteAnagrafica",
-        "description" : "deleteAnagrafica",
-        "operationId" : "delete-anagrafica",
+        "summary" : "deleteNegozi",
+        "description" : "deleteNegozi",
+        "operationId" : "delete-negozi",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "Email",
+          "name" : "ID_Negozio",
           "in" : "query",
           "description" : "",
-          "type" : "string",
-          "required" : false
+          "type" : "integer",
+          "format" : "int32",
+          "required" : true
         } ],
         "responses" : {
           "200" : {
@@ -99,66 +100,60 @@
     }
   },
   "definitions" : {
-    "Dati" : {
+    "RequesteModify" : {
       "type" : "object",
-      "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
+      "required" : [ "ID_Negozio", "Indirizzo", "citta" ],
       "properties" : {
-        "Nome" : {
-          "type" : "string"
+        "ID_Negozio" : {
+          "type" : "integer",
+          "format" : "int32"
         },
-        "Cognome" : {
-          "type" : "string"
-        },
-        "DataNascita" : {
-          "type" : "string",
-          "format" : "date"
-        },
-        "Citta" : {
+        "citta" : {
           "type" : "string"
         },
         "Indirizzo" : {
-          "type" : "string"
-        },
-        "Email" : {
           "type" : "string"
         }
       }
     },
     "RequestAdd" : {
       "type" : "object",
-      "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
+      "required" : [ "Indirizzo", "Citta" ],
       "properties" : {
-        "Nome" : {
-          "type" : "string"
-        },
-        "Cognome" : {
-          "type" : "string"
-        },
-        "DataNascita" : {
-          "type" : "string",
-          "format" : "date"
-        },
         "Citta" : {
           "type" : "string"
         },
         "Indirizzo" : {
-          "type" : "string"
-        },
-        "Email" : {
           "type" : "string"
         }
       }
     },
     "ResponseSelect" : {
       "type" : "object",
-      "required" : [ "Dati" ],
+      "required" : [ "Negozi" ],
       "properties" : {
-        "Dati" : {
+        "Negozi" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Dati",
+            "$ref" : "#/definitions/Negozi",
             "uniqueItems" : false
           }
+        }
+      }
+    },
+    "Negozi" : {
+      "type" : "object",
+      "required" : [ "ID_Negozio", "Indirizzo", "citta" ],
+      "properties" : {
+        "ID_Negozio" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "citta" : {
+          "type" : "string"
+        },
+        "Indirizzo" : {
+          "type" : "string"
         }
       }
     },

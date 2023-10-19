@@ -103,5 +103,25 @@
         "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Main.Anagrafica-Anagrafica.json",
         "conversionType": "linked",
         "xsdSchemaTargetNamespace": "http://www.example.org/Anagrafica"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Main.DatiFilm-DatiFilm.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Film"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Main.Negozi-Negozi.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Negozio"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Main.Prenotazioni-Prenotazioni.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Prenotazioni"
+    },
+    {
+        "jsonSchemaLocation": "/GestioneVideotecaREST.module/Service Descriptors/Main.Registi-Registi.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "http://www.example.org/Regista"
     }
 ]}

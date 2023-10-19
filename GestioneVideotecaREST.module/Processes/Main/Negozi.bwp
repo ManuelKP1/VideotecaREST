@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpws:process exitOnStandardFault="no" name="Main.Anagrafica"
+<bpws:process exitOnStandardFault="no" name="Main.Negozi"
     suppressJoinFailure="yes"
-    targetNamespace="http://xmlns.example.com/20231018123256"
+    targetNamespace="http://xmlns.example.com/20231019094542"
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:info="http://www.tibco.com/bw/process/info"
     xmlns:ns="http://www.tibco.com/pe/EngineTypes"
-    xmlns:ns0="http://xmlns.example.com/20231018123256PLT"
-    xmlns:ns1="http://www.example.org/Anagrafica"
+    xmlns:ns0="http://xmlns.example.com/20231019094542PLT"
+    xmlns:ns1="http://www.example.org/Negozio"
     xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
@@ -217,27 +217,25 @@
             <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <wsdl:definitions
-            targetNamespace="http://xmlns.example.com/20231018123256PLT"
+            targetNamespace="http://xmlns.example.com/20231019094542PLT"
             xmlns:extns="http://tns.tibco.com/bw/REST"
-            xmlns:extns1="http://www.example.org/Anagrafica"
-            xmlns:extns2="http://xmlns.example.com/Anagrafica/parameters"
+            xmlns:extns1="http://www.example.org/Negozio"
+            xmlns:extns2="http://xmlns.example.com/Negozi/parameters"
             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
             xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
-            xmlns:tns="http://xmlns.example.com/20231018123256PLT"
+            xmlns:tns="http://xmlns.example.com/20231019094542PLT"
             xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <plnk:partnerLinkType name="partnerLinkType">
-                <plnk:role name="use" portType="tns:anagrafica"/>
+                <plnk:role name="use" portType="tns:negozi"/>
             </plnk:partnerLinkType>
             <wsdl:import namespace="http://tns.tibco.com/bw/REST"/>
-            <wsdl:import namespace="http://www.example.org/Anagrafica"/>
-            <wsdl:import namespace="http://xmlns.example.com/Anagrafica/parameters"/>
+            <wsdl:import namespace="http://www.example.org/Negozio"/>
+            <wsdl:import namespace="http://xmlns.example.com/Negozi/parameters"/>
             <wsdl:message name="postRequest">
                 <wsdl:part element="extns1:RequestAdd" name="RequestAdd" tibex:hasMultipleNamespaces="false"/>
                 <wsdl:part element="extns:httpHeaders"
                     name="httpHeaders" tibex:source="bw.rest"/>
-                <wsdl:part element="extns2:anagraficaPostParameters"
-                    name="parameters" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="postResponse">
                 <wsdl:part element="extns1:ResponseAdd"
@@ -264,7 +262,7 @@
                 <wsdl:part element="extns:server5XXError" name="serverError"/>
             </wsdl:message>
             <wsdl:message name="putRequest">
-                <wsdl:part element="extns1:RequestAdd"
+                <wsdl:part element="extns1:RequesteModify"
                     name="RequestModify" tibex:hasMultipleNamespaces="false"/>
                 <wsdl:part element="extns:httpHeaders"
                     name="httpHeaders" tibex:source="bw.rest"/>
@@ -282,7 +280,7 @@
             <wsdl:message name="deleteRequest">
                 <wsdl:part element="extns:httpHeaders"
                     name="httpHeaders" tibex:source="bw.rest"/>
-                <wsdl:part element="extns2:anagraficaDeleteParameters"
+                <wsdl:part element="extns2:negoziDeleteParameters"
                     name="parameters" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="deleteResponse">
@@ -295,35 +293,34 @@
             <wsdl:message name="delete5XXFaultMessage">
                 <wsdl:part element="extns:server5XXError" name="serverError"/>
             </wsdl:message>
-            <wsdl:portType name="anagrafica"
-                tibex:bw.rest.apipath="/anagrafica/"
-                tibex:bw.rest.basepath="Anagrafica"
-                tibex:bw.rest.resource="Service Descriptors/Main.Anagrafica-Anagrafica.json"
+            <wsdl:portType name="negozi" tibex:bw.rest.apipath="/negozi"
+                tibex:bw.rest.basepath="Negozi"
+                tibex:bw.rest.resource="Service Descriptors/Main.Negozi-Negozi.json"
                 tibex:bw.rest.resource.source="generated" tibex:source="bw.rest.service">
-                <wsdl:documentation>Anagrafica service</wsdl:documentation>
+                <wsdl:documentation>Negozi service</wsdl:documentation>
                 <wsdl:operation name="post">
-                    <wsdl:documentation>postAnagrafica</wsdl:documentation>
+                    <wsdl:documentation>postNegozi</wsdl:documentation>
                     <wsdl:input message="tns:postRequest" name="postInput"/>
                     <wsdl:output message="tns:postResponse" name="postOutput"/>
                     <wsdl:fault message="tns:post4XXFaultMessage" name="clientFault"/>
                     <wsdl:fault message="tns:post5XXFaultMessage" name="serverFault"/>
                 </wsdl:operation>
                 <wsdl:operation name="get">
-                    <wsdl:documentation>getAnagrafica</wsdl:documentation>
+                    <wsdl:documentation>getNegozi</wsdl:documentation>
                     <wsdl:input message="tns:getRequest" name="getInput"/>
                     <wsdl:output message="tns:getResponse" name="getOutput"/>
                     <wsdl:fault message="tns:get4XXFaultMessage" name="clientFault"/>
                     <wsdl:fault message="tns:get5XXFaultMessage" name="serverFault"/>
                 </wsdl:operation>
                 <wsdl:operation name="put">
-                    <wsdl:documentation>putAnagrafica</wsdl:documentation>
+                    <wsdl:documentation>putNegozi</wsdl:documentation>
                     <wsdl:input message="tns:putRequest" name="putInput"/>
                     <wsdl:output message="tns:putResponse" name="putOutput"/>
                     <wsdl:fault message="tns:put4XXFaultMessage" name="clientFault"/>
                     <wsdl:fault message="tns:put5XXFaultMessage" name="serverFault"/>
                 </wsdl:operation>
                 <wsdl:operation name="delete">
-                    <wsdl:documentation>deleteAnagrafica</wsdl:documentation>
+                    <wsdl:documentation>deleteNegozi</wsdl:documentation>
                     <wsdl:input message="tns:deleteRequest" name="deleteInput"/>
                     <wsdl:output message="tns:deleteResponse" name="deleteOutput"/>
                     <wsdl:fault message="tns:delete4XXFaultMessage" name="clientFault"/>
@@ -333,7 +330,7 @@
         </wsdl:definitions>
     </tibex:Types>
     <tibex:ProcessInfo callable="false" createdBy="manue"
-        createdOn="Wed Oct 18 12:32:56 CEST 2023" description=""
+        createdOn="Thu Oct 19 09:45:42 CEST 2023" description=""
         extraErrorVars="true" modifiers="public"
         productVersion="6.9.1 V17 2023-05-19" scalable="true"
         singleton="true" stateless="true" type="IT"/>
@@ -571,7 +568,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.3"/>
 
                                     <layoutConstraint
-                                    x="67"
+                                    x="42"
                                     xsi:type="notation:Bounds" y="10"/>
                                     </children>
 
@@ -596,7 +593,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity"/>
 
                                     <layoutConstraint
-                                    height="99"
+                                    height="105"
                                     width="381" xsi:type="notation:Bounds"/>
                                     </children>
 
@@ -616,10 +613,9 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
 
                                     <layoutConstraint
-                                    height="-45"
-                                    width="-76"
-                                    x="30"
-                                    xsi:type="notation:Bounds" y="20"/>
+                                    height="104"
+                                    width="384"
+                                    x="15" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -631,7 +627,9 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity"/>
 
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    <layoutConstraint
+                                    height="128"
+                                    width="424" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -688,8 +686,9 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.0"/>
                                     <layoutConstraint
-                                    height="140"
-                                    width="485" xsi:type="notation:Bounds"/>
+                                    height="147"
+                                    width="486"
+                                    x="2" xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4011">
                                     <children type="3012">
@@ -853,7 +852,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@activities.3"/>
 
                                     <layoutConstraint
-                                    x="58"
+                                    x="31"
                                     xsi:type="notation:Bounds" y="10"/>
                                     </children>
 
@@ -878,7 +877,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity"/>
 
                                     <layoutConstraint
-                                    height="106"
+                                    height="99"
                                     width="381" xsi:type="notation:Bounds"/>
                                     </children>
 
@@ -898,9 +897,10 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity"/>
 
                                     <layoutConstraint
-                                    height="105"
-                                    width="384"
-                                    x="15" xsi:type="notation:Bounds"/>
+                                    height="-45"
+                                    width="-76"
+                                    x="30"
+                                    xsi:type="notation:Bounds" y="20"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -912,9 +912,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity"/>
 
-                                    <layoutConstraint
-                                    height="129"
-                                    width="424" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -971,10 +969,8 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.1"/>
                                     <layoutConstraint
-                                    height="148"
-                                    width="486"
-                                    x="2"
-                                    xsi:type="notation:Bounds" y="141"/>
+                                    height="140"
+                                    width="485" xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4011">
                                     <children type="3012">
@@ -1084,7 +1080,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.2/@activity/@activity/@activities.2"/>
 
                                     <layoutConstraint
-                                    x="236"
+                                    x="245"
                                     xsi:type="notation:Bounds" y="10"/>
                                     </children>
 
@@ -1138,7 +1134,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.2/@activity/@activity/@activities.3"/>
 
                                     <layoutConstraint
-                                    x="57"
+                                    x="37"
                                     xsi:type="notation:Bounds" y="10"/>
                                     </children>
 
@@ -1163,7 +1159,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.2/@activity/@activity"/>
 
                                     <layoutConstraint
-                                    height="103"
+                                    height="99"
                                     width="381" xsi:type="notation:Bounds"/>
                                     </children>
 
@@ -1183,9 +1179,10 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.2/@activity"/>
 
                                     <layoutConstraint
-                                    height="102"
-                                    width="384"
-                                    x="15" xsi:type="notation:Bounds"/>
+                                    height="-45"
+                                    width="-76"
+                                    x="30"
+                                    xsi:type="notation:Bounds" y="20"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -1197,9 +1194,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.2/@activity"/>
 
-                                    <layoutConstraint
-                                    height="126"
-                                    width="424" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -1256,10 +1251,8 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.2"/>
                                     <layoutConstraint
-                                    height="145"
-                                    width="486"
-                                    x="2"
-                                    xsi:type="notation:Bounds" y="290"/>
+                                    height="140"
+                                    width="485" xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4011">
                                     <children type="3012">
@@ -1423,7 +1416,7 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0/@messages.3/@activity/@activity/@activities.3"/>
 
                                     <layoutConstraint
-                                    x="58"
+                                    x="43"
                                     xsi:type="notation:Bounds" y="10"/>
                                     </children>
 
@@ -1552,7 +1545,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0"/>
                                     <layoutConstraint
-                                    height="612" width="561" xsi:type="notation:Bounds"/>
+                                    height="606" width="561" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -1566,7 +1559,7 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="642"
+                                    <layoutConstraint height="626"
                                     width="515" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
@@ -1595,7 +1588,7 @@
             </children>
             <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="718" width="860" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="702" width="860" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -1608,7 +1601,7 @@
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[25, 0, -153, 0]$[154, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+            <bendpoints points="[25, -9, -189, 0]$[190, 0, -24, 9]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.1/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
@@ -1619,18 +1612,7 @@
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@activities.0/@messages.1/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[25, -1, -161, 9]$[162, -9, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.3/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.3/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@activities.0/@messages.3/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[25, 0, -162, 0]$[163, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+            <bendpoints points="[25, 0, -189, 0]$[190, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.2/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
@@ -1641,24 +1623,34 @@
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@activities.0/@messages.2/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[25, 0, -163, 0]$[164, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+            <bendpoints points="[25, 0, -183, 0]$[184, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.3/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.3/@children.1/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.0/@messages.3/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, 7, -179, 0]$[180, 0, -24, -7]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
     <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem namespace="http://www.example.org/Negozio" prefix="tns"/>
         <tibex:namespaceItem
-            namespace="http://www.example.org/Anagrafica" prefix="tns"/>
+            namespace="http://xmlns.example.com/20231019094542PLT" prefix="tns1"/>
         <tibex:namespaceItem
-            namespace="http://xmlns.example.com/20231018123256PLT" prefix="tns1"/>
-        <tibex:namespaceItem
-            namespace="http://xmlns.example.com/Anagrafica/parameters" prefix="tns2"/>
+            namespace="http://www.w3.org/2001/XMLSchema" prefix="xsd"/>
     </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
-    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/Anagrafica"/>
-    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://xmlns.example.com/Anagrafica/parameters"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/Negozio"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://xmlns.example.com/Negozi/parameters"/>
     <bpws:partnerLinks>
-        <bpws:partnerLink myRole="use" name="anagrafica"
+        <bpws:partnerLink myRole="use" name="negozi"
             partnerLinkType="ns0:partnerLinkType"
-            sca-bpel:ignore="false" sca-bpel:service="anagrafica"/>
+            sca-bpel:ignore="false" sca-bpel:service="negozi"/>
     </bpws:partnerLinks>
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
@@ -1676,10 +1668,10 @@
         <bpws:variable element="ns1:RequestAdd" name="Add-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns1:ResponseAdd" name="Add" sca-bpel:internal="true"/>
         <bpws:variable element="ns1:ResponseSelect" name="Select" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequesteModify" name="Modify-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseAdd" name="Modify" sca-bpel:internal="true"/>
         <bpws:variable element="ns1:RequestDelete" name="Delete-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns1:ResponseAdd" name="Delete" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequestAdd" name="Modify-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Modify" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -1692,77 +1684,77 @@
     <bpws:scope name="scope">
         <bpws:flow name="flow">
             <bpws:links/>
-            <bpws:pick createInstance="yes" name="pick" tibex:xpdlId="1b1aa009-223e-46f7-afe0-60454b70e553">
-                <bpws:onMessage operation="post"
-                    partnerLink="anagrafica" portType="ns0:anagrafica"
-                    tibex:xpdlId="0df23bfd-0ea0-42a2-8c08-93b175dd12d4" variable="post">
+            <bpws:pick createInstance="yes" name="pick" tibex:xpdlId="b831346b-4c49-4acb-9309-dc3a6b6fc85a">
+                <bpws:onMessage operation="post" partnerLink="negozi"
+                    portType="ns0:negozi"
+                    tibex:xpdlId="da7e2e15-137f-47a4-b7ea-1e34176e137e" variable="post">
                     <bpws:scope name="scope1">
                         <bpws:flow name="flow1">
                             <bpws:links>
                                 <bpws:link name="AddTopostOut" tibex:linkType="SUCCESS"/>
                             </bpws:links>
                             <bpws:empty name="OnMessageStart"
-                                tibex:constructor="onMessageStart" tibex:xpdlId="4417d70b-b727-454c-98ff-0d86905d60e5"/>
+                                tibex:constructor="onMessageStart" tibex:xpdlId="7a040ba1-d899-4da2-9727-a0d8e072dac5"/>
                             <bpws:empty name="OnMessageEnd"
-                                tibex:constructor="onMessageEnd" tibex:xpdlId="20178a33-df9d-4246-a8ea-14d800f1e760"/>
+                                tibex:constructor="onMessageEnd" tibex:xpdlId="fb157b6d-4d75-429b-914f-9a563fda11d4"/>
                             <bpws:reply name="postOut" operation="post"
-                                partnerLink="anagrafica"
-                                portType="ns0:anagrafica"
-                                tibex:xpdlId="eef98322-2e8a-48f9-a32d-bb6a82c0810d" variable="postOut-input">
+                                partnerLink="negozi"
+                                portType="ns0:negozi"
+                                tibex:xpdlId="80aa205e-068a-49f1-ad9f-964ba1f5e446" variable="postOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018123256PLT&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Add&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Add/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Add&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Add/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018123256PLT" xmlns:tns="http://www.example.org/Anagrafica" version="2.0"&gt;&lt;xsl:param name="Add"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns1:postResponse&gt;&lt;ResponseAdd&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Add/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseAdd&gt;&lt;/tns1:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;&lt;xsl:param name="Add"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns1:postResponse&gt;&lt;ResponseAdd&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Add/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseAdd&gt;&lt;/tns1:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="AddTopostOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;post&quot;/>&lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&lt;xsl:copy-of select=&quot;$post/RequestAdd/tns:RequestAdd&quot;/>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;post&quot;/>&lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&lt;tns:RequestAdd>&lt;tns:Citta>&lt;xsl:value-of select=&quot;$post/RequestAdd/tns:RequestAdd/tns:Citta&quot;/>&lt;/tns:Citta>&lt;tns:Indirizzo>&lt;xsl:value-of select=&quot;$post/RequestAdd/tns:RequestAdd/tns:Indirizzo&quot;/>&lt;/tns:Indirizzo>&lt;/tns:RequestAdd>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Add-input" name="Add"
                                     outputVariable="Add"
-                                    tibex:xpdlId="3c6a5aad-e62f-4a5a-bffe-5fbe8b4bb423"
+                                    tibex:xpdlId="34bcb26c-ef81-4f38-abb4-47c29d2bd48b"
                                     type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="AddTopostOut"/>
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding coercion=""
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post.RequestAdd&quot;/>&#xa;    &lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$post.RequestAdd&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post.RequestAdd&quot;/>&#xa;    &lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestAdd>&#xa;            &lt;tns:Citta>&#xa;                &lt;xsl:value-of select=&quot;$post.RequestAdd/tns:Citta&quot;/>&#xa;            &lt;/tns:Citta>&#xa;            &lt;tns:Indirizzo>&#xa;                &lt;xsl:value-of select=&quot;$post.RequestAdd/tns:Indirizzo&quot;/>&#xa;            &lt;/tns:Indirizzo>&#xa;        &lt;/tns:RequestAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
-                                    subProcessName="Anagrafica.Integrazione.Add" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                                    subProcessName="Negozi.Integrazione.Add" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
                                 </tibex:extActivity>
                             </bpws:extensionActivity>
                         </bpws:flow>
                     </bpws:scope>
                 </bpws:onMessage>
-                <bpws:onMessage operation="get" partnerLink="anagrafica"
-                    portType="ns0:anagrafica"
-                    tibex:xpdlId="185edb6c-4dfe-47b4-a0ee-7e7351222719" variable="get">
+                <bpws:onMessage operation="get" partnerLink="negozi"
+                    portType="ns0:negozi"
+                    tibex:xpdlId="e37b1063-b57b-48cb-9875-478f5b317ab2" variable="get">
                     <bpws:scope name="scope2">
                         <bpws:flow name="flow2">
                             <bpws:links>
                                 <bpws:link name="SelectTogetOut" tibex:linkType="SUCCESS"/>
                             </bpws:links>
                             <bpws:empty name="OnMessageStart1"
-                                tibex:constructor="onMessageStart" tibex:xpdlId="9124e9e5-8959-4737-a332-c92d701c89bc"/>
+                                tibex:constructor="onMessageStart" tibex:xpdlId="4895b780-8317-4b36-abf8-0e60f9fb3f40"/>
                             <bpws:empty name="OnMessageEnd1"
-                                tibex:constructor="onMessageEnd" tibex:xpdlId="4cb8ea5b-7307-4c27-b59c-9da04e827e01"/>
+                                tibex:constructor="onMessageEnd" tibex:xpdlId="460b2754-d4c6-471e-8f2f-76f037bdf25e"/>
                             <bpws:reply name="getOut" operation="get"
-                                partnerLink="anagrafica"
-                                portType="ns0:anagrafica"
-                                tibex:xpdlId="4da9b42f-3b9d-4e2d-99eb-d13b63863287" variable="getOut-input">
+                                partnerLink="negozi"
+                                portType="ns0:negozi"
+                                tibex:xpdlId="63eea9c6-e2f1-4f41-80a7-f2af7a0b630c" variable="getOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018123256PLT&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Select&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelect>&#xa;            &lt;xsl:copy-of select=&quot;$Select/tns:Dati&quot;/>&#xa;        &lt;/tns:ResponseSelect>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Select&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelect>&#xa;            &lt;xsl:copy-of select=&quot;$Select/tns:Negozi&quot;/>&#xa;        &lt;/tns:ResponseSelect>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018123256PLT" xmlns:tns="http://www.example.org/Anagrafica" version="2.0"&gt;&lt;xsl:param name="Select"/&gt;&lt;xsl:template name="getOut-input" match="/"&gt;&lt;tns1:getResponse&gt;&lt;ResponseSelect&gt;&lt;tns:ResponseSelect&gt;&lt;xsl:copy-of select="$Select/tns:Dati"/&gt;&lt;/tns:ResponseSelect&gt;&lt;/ResponseSelect&gt;&lt;/tns1:getResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;&lt;xsl:param name="Select"/&gt;&lt;xsl:template name="getOut-input" match="/"&gt;&lt;tns1:getResponse&gt;&lt;ResponseSelect&gt;&lt;tns:ResponseSelect&gt;&lt;xsl:copy-of select="$Select/tns:Negozi"/&gt;&lt;/tns:ResponseSelect&gt;&lt;/ResponseSelect&gt;&lt;/tns1:getResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="SelectTogetOut"/>
                                 </bpws:targets>
@@ -1770,112 +1762,111 @@
                             <bpws:extensionActivity>
                                 <tibex:extActivity name="Select"
                                     outputVariable="Select"
-                                    tibex:xpdlId="aeccf03a-ea3e-4203-9486-9619433316cf"
+                                    tibex:xpdlId="f014e83c-e8c2-405c-9a19-719ba48a8306"
                                     type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="SelectTogetOut"/>
                                     </bpws:sources>
                                     <tibex:CallProcess
-                                    subProcessName="Anagrafica.Integrazione.Select" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                                    subProcessName="Negozi.Integrazione.Select" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
                                 </tibex:extActivity>
                             </bpws:extensionActivity>
                         </bpws:flow>
                     </bpws:scope>
                 </bpws:onMessage>
-                <bpws:onMessage operation="put" partnerLink="anagrafica"
-                    portType="ns0:anagrafica"
-                    tibex:xpdlId="bf3ead96-4dd1-424c-96f8-b14deb71367e" variable="put">
+                <bpws:onMessage operation="put" partnerLink="negozi"
+                    portType="ns0:negozi"
+                    tibex:xpdlId="20ecfaa3-0387-43cb-bce7-97484e14eded" variable="put">
                     <bpws:scope name="scope3">
                         <bpws:flow name="flow3">
                             <bpws:links>
                                 <bpws:link name="ModifyToputOut" tibex:linkType="SUCCESS"/>
                             </bpws:links>
                             <bpws:empty name="OnMessageStart2"
-                                tibex:constructor="onMessageStart" tibex:xpdlId="dd45003e-5a21-480e-a434-5a2feb8c92ed"/>
+                                tibex:constructor="onMessageStart" tibex:xpdlId="6d9ca93b-2327-4af4-b15b-04d9a1ee90f4"/>
                             <bpws:empty name="OnMessageEnd2"
-                                tibex:constructor="onMessageEnd" tibex:xpdlId="9f1c78b8-fc79-4712-b09f-0621c399fd32"/>
+                                tibex:constructor="onMessageEnd" tibex:xpdlId="13d2a35d-70c4-494f-8542-518ace0d1344"/>
                             <bpws:reply name="putOut" operation="put"
-                                partnerLink="anagrafica"
-                                portType="ns0:anagrafica"
-                                tibex:xpdlId="98e01c52-b145-476f-8e7d-ed716cf36f1c" variable="putOut-input">
+                                partnerLink="negozi"
+                                portType="ns0:negozi"
+                                tibex:xpdlId="b4bae047-b137-466a-b80b-192b826fd849" variable="putOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018123256PLT&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Modify&quot;/>&#xa;    &lt;xsl:template name=&quot;putOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Modify/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Modify&quot;/>&#xa;    &lt;xsl:template name=&quot;putOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Modify/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018123256PLT" xmlns:tns="http://www.example.org/Anagrafica" version="2.0"&gt;&lt;xsl:param name="Modify"/&gt;&lt;xsl:template name="putOut-input" match="/"&gt;&lt;tns1:putResponse&gt;&lt;ResponseModify&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Modify/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseModify&gt;&lt;/tns1:putResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;&lt;xsl:param name="Modify"/&gt;&lt;xsl:template name="putOut-input" match="/"&gt;&lt;tns1:putResponse&gt;&lt;ResponseModify&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Modify/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseModify&gt;&lt;/tns1:putResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="ModifyToputOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;put&quot;/>&lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&lt;xsl:copy-of select=&quot;$put/RequestModify/tns:RequestAdd&quot;/>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;put&quot;/>&lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&lt;tns:RequesteModify>&lt;tns:ID_Negozio>&lt;xsl:value-of select=&quot;$put/RequestModify/tns:RequesteModify/tns:ID_Negozio&quot;/>&lt;/tns:ID_Negozio>&lt;tns:citta>&lt;xsl:value-of select=&quot;$put/RequestModify/tns:RequesteModify/tns:citta&quot;/>&lt;/tns:citta>&lt;tns:Indirizzo>&lt;xsl:value-of select=&quot;$put/RequestModify/tns:RequesteModify/tns:Indirizzo&quot;/>&lt;/tns:Indirizzo>&lt;/tns:RequesteModify>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Modify-input"
                                     name="Modify"
                                     outputVariable="Modify"
-                                    tibex:xpdlId="403c3f01-4b82-49ce-b61a-625542c58920"
+                                    tibex:xpdlId="3d9148e5-d73b-4726-a4e1-7066a52cf7a6"
                                     type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="ModifyToputOut"/>
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding coercion=""
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;put.RequestModify&quot;/>&#xa;    &lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$put.RequestModify&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;put.RequestModify&quot;/>&#xa;    &lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequesteModify>&#xa;            &lt;tns:ID_Negozio>&#xa;                &lt;xsl:value-of select=&quot;$put.RequestModify/tns:ID_Negozio&quot;/>&#xa;            &lt;/tns:ID_Negozio>&#xa;            &lt;tns:citta>&#xa;                &lt;xsl:value-of select=&quot;$put.RequestModify/tns:citta&quot;/>&#xa;            &lt;/tns:citta>&#xa;            &lt;tns:Indirizzo>&#xa;                &lt;xsl:value-of select=&quot;$put.RequestModify/tns:Indirizzo&quot;/>&#xa;            &lt;/tns:Indirizzo>&#xa;        &lt;/tns:RequesteModify>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
-                                    subProcessName="Anagrafica.Integrazione.Modify" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                                    subProcessName="Negozi.Integrazione.Modify" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
                                 </tibex:extActivity>
                             </bpws:extensionActivity>
                         </bpws:flow>
                     </bpws:scope>
                 </bpws:onMessage>
-                <bpws:onMessage operation="delete"
-                    partnerLink="anagrafica" portType="ns0:anagrafica"
-                    tibex:xpdlId="69f2fc4e-f1f7-4dad-8fbc-7d8a5d014263" variable="delete">
+                <bpws:onMessage operation="delete" partnerLink="negozi"
+                    portType="ns0:negozi"
+                    tibex:xpdlId="e1c88fd5-b40e-40f4-a60f-9572f47e39f5" variable="delete">
                     <bpws:scope name="scope4">
                         <bpws:flow name="flow4">
                             <bpws:links>
                                 <bpws:link name="DeleteTodeleteOut" tibex:linkType="SUCCESS"/>
                             </bpws:links>
                             <bpws:empty name="OnMessageStart3"
-                                tibex:constructor="onMessageStart" tibex:xpdlId="ade00f33-8f6a-4e85-ba8f-e3df599b9445"/>
+                                tibex:constructor="onMessageStart" tibex:xpdlId="1eee8e49-1b60-44ad-bf67-90ecbd9ca508"/>
                             <bpws:empty name="OnMessageEnd3"
-                                tibex:constructor="onMessageEnd" tibex:xpdlId="0dbc1803-9df4-4bc3-98da-c230bc62d4b0"/>
+                                tibex:constructor="onMessageEnd" tibex:xpdlId="de69fd75-9fdf-4ead-8aa8-6e96b4ef08e5"/>
                             <bpws:reply name="deleteOut"
-                                operation="delete"
-                                partnerLink="anagrafica"
-                                portType="ns0:anagrafica"
-                                tibex:xpdlId="1f2bd619-152e-4a56-a367-46655e6d0f4e" variable="deleteOut-input">
+                                operation="delete" partnerLink="negozi"
+                                portType="ns0:negozi"
+                                tibex:xpdlId="0eb0bca4-55b3-4f34-8ae0-6129132825dc" variable="deleteOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018123256PLT&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Delete&quot;/>&#xa;    &lt;xsl:template name=&quot;deleteOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Delete/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Delete&quot;/>&#xa;    &lt;xsl:template name=&quot;deleteOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Delete/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018123256PLT" xmlns:tns="http://www.example.org/Anagrafica" version="2.0"&gt;&lt;xsl:param name="Delete"/&gt;&lt;xsl:template name="deleteOut-input" match="/"&gt;&lt;tns1:deleteResponse&gt;&lt;ResponseDelete&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Delete/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseDelete&gt;&lt;/tns1:deleteResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;&lt;xsl:param name="Delete"/&gt;&lt;xsl:template name="deleteOut-input" match="/"&gt;&lt;tns1:deleteResponse&gt;&lt;ResponseDelete&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Delete/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseDelete&gt;&lt;/tns1:deleteResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="DeleteTodeleteOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://xmlns.example.com/Anagrafica/parameters&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;delete&quot;/>&lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&lt;tns:RequestDelete>&lt;tns:Email>&lt;xsl:value-of select=&quot;$delete/parameters/tns2:anagraficaDeleteParameters/tns2:Email&quot;/>&lt;/tns:Email>&lt;/tns:RequestDelete>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Negozi/parameters&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;delete&quot;/>&lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&lt;tns:RequestDelete>&lt;tns:ID_Negozio>&lt;xsl:value-of select=&quot;xsd:int($delete/parameters/tns1:negoziDeleteParameters/tns1:ID_Negozio)&quot;/>&lt;/tns:ID_Negozio>&lt;/tns:RequestDelete>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Delete-input"
                                     name="Delete"
                                     outputVariable="Delete"
-                                    tibex:xpdlId="b680fd61-5d5c-492a-ab98-6f2ebd922912"
+                                    tibex:xpdlId="0d3f756e-05af-48ed-a07a-2bfcb23c613d"
                                     type="bw.generalactivities.callprocess" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <bpws:sources>
                                     <bpws:source linkName="DeleteTodeleteOut"/>
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding coercion=""
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://xmlns.example.com/Anagrafica/parameters&quot; xmlns:tns=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestDelete>&#xa;            &lt;tns:Email>&#xa;                &lt;xsl:value-of select=&quot;$delete.parameters/tns2:Email&quot;/>&#xa;            &lt;/tns:Email>&#xa;        &lt;/tns:RequestDelete>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Negozi/parameters&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestDelete>&#xa;            &lt;tns:ID_Negozio>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete.parameters/tns1:ID_Negozio)&quot;/>&#xa;            &lt;/tns:ID_Negozio>&#xa;        &lt;/tns:RequestDelete>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
-                                    subProcessName="Anagrafica.Integrazione.Delete" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                                    subProcessName="Negozi.Integrazione.Delete" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
                                 </tibex:extActivity>
                             </bpws:extensionActivity>
                         </bpws:flow>

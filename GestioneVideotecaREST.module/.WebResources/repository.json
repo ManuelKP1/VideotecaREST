@@ -82,31 +82,27 @@
             "type": "generated"
         },
         {
-            "location": "Service Descriptors/DataFilms.Integrazione.SelectFilmkkkkkkk-SelectFilm.json",
-            "type": "generated"
-        },
-        {
-            "location": "Service Descriptors/DataFilms.Integrazione.ModifyFilmpp-ModifyFilm.json",
-            "type": "generated"
-        },
-        {
             "location": "Service Descriptors/DataFilms.Integrazione.DeleteFilmpp-DeleteFilm.json",
             "type": "generated"
         },
         {
-            "location": "Service Descriptors/DataFilms.Integrazione.AddFilmpp-AddFilm.json",
-            "type": "generated"
-        },
-        {
-            "location": "Service Descriptors/Negozi.Integrazione.AddNegoziopp-AddNegozio.json",
-            "type": "generated"
-        },
-        {
-            "location": "Service Descriptors/Negozi.Integrazione.DeleteNegoziopp-DeleteNegozio.json",
-            "type": "generated"
-        },
-        {
             "location": "Service Descriptors/Main.Anagrafica-Anagrafica.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Main.DatiFilm-DatiFilm.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Main.Negozi-Negozi.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Main.Prenotazioni-Prenotazioni.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/Main.Registi-Registi.json",
             "type": "generated"
         }
     ]

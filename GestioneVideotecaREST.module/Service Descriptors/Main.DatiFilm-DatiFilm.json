@@ -2,18 +2,18 @@
   "swagger" : "2.0",
   "info" : {
     "version" : "1.0",
-    "title" : "Anagrafica",
-    "description" : "Anagrafica service"
+    "title" : "DatiFilm",
+    "description" : "DatiFilm service"
   },
   "host" : "localhost:8080",
   "basePath" : "/",
   "schemes" : [ "http" ],
   "paths" : {
-    "/anagrafica/" : {
+    "/datifilm" : {
       "post" : {
-        "summary" : "postAnagrafica",
-        "description" : "postAnagrafica",
-        "operationId" : "post-anagrafica",
+        "summary" : "postDatiFilm",
+        "description" : "postDatiFilm",
+        "operationId" : "post-datifilm",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -35,9 +35,9 @@
         }
       },
       "get" : {
-        "summary" : "getAnagrafica",
-        "description" : "getAnagrafica",
-        "operationId" : "get-anagrafica",
+        "summary" : "getDatiFilm",
+        "description" : "getDatiFilm",
+        "operationId" : "get-datifilm",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ ],
@@ -51,9 +51,9 @@
         }
       },
       "put" : {
-        "summary" : "putAnagrafica",
-        "description" : "putAnagrafica",
-        "operationId" : "put-anagrafica",
+        "summary" : "putDatiFilm",
+        "description" : "putDatiFilm",
+        "operationId" : "put-datifilm",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -61,7 +61,7 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequestModify"
           },
           "required" : true
         } ],
@@ -75,17 +75,18 @@
         }
       },
       "delete" : {
-        "summary" : "deleteAnagrafica",
-        "description" : "deleteAnagrafica",
-        "operationId" : "delete-anagrafica",
+        "summary" : "deleteDatiFilm",
+        "description" : "deleteDatiFilm",
+        "operationId" : "delete-datifilm",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "Email",
+          "name" : "ID_Film",
           "in" : "query",
           "description" : "",
-          "type" : "string",
-          "required" : false
+          "type" : "integer",
+          "format" : "int32",
+          "required" : true
         } ],
         "responses" : {
           "200" : {
@@ -99,66 +100,108 @@
     }
   },
   "definitions" : {
-    "Dati" : {
+    "ListaFilm" : {
       "type" : "object",
-      "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
+      "required" : [ "Durata", "Genere", "ID_Film", "ID_Regista", "Copie", "DataUscita", "Nome" ],
       "properties" : {
+        "ID_Film" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
         "Nome" : {
           "type" : "string"
         },
-        "Cognome" : {
-          "type" : "string"
+        "Durata" : {
+          "type" : "integer",
+          "format" : "int32"
         },
-        "DataNascita" : {
+        "DataUscita" : {
           "type" : "string",
           "format" : "date"
         },
-        "Citta" : {
-          "type" : "string"
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
         },
-        "Indirizzo" : {
-          "type" : "string"
+        "Copie" : {
+          "type" : "integer",
+          "format" : "int32"
         },
-        "Email" : {
+        "Genere" : {
           "type" : "string"
         }
       }
     },
     "RequestAdd" : {
       "type" : "object",
-      "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
+      "required" : [ "Durata", "Genere", "ID_Regista", "Copie", "DataUscita", "Nome" ],
       "properties" : {
         "Nome" : {
           "type" : "string"
         },
-        "Cognome" : {
-          "type" : "string"
+        "Durata" : {
+          "type" : "integer",
+          "format" : "int32"
         },
-        "DataNascita" : {
+        "DataUscita" : {
           "type" : "string",
           "format" : "date"
         },
-        "Citta" : {
-          "type" : "string"
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
         },
-        "Indirizzo" : {
-          "type" : "string"
+        "Copie" : {
+          "type" : "integer",
+          "format" : "int32"
         },
-        "Email" : {
+        "Genere" : {
           "type" : "string"
         }
       }
     },
     "ResponseSelect" : {
       "type" : "object",
-      "required" : [ "Dati" ],
+      "required" : [ "ListaFilm" ],
       "properties" : {
-        "Dati" : {
+        "ListaFilm" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Dati",
+            "$ref" : "#/definitions/ListaFilm",
             "uniqueItems" : false
           }
+        }
+      }
+    },
+    "RequestModify" : {
+      "type" : "object",
+      "required" : [ "Durata", "Genere", "ID_Film", "ID_Regista", "Copie", "DataUscita", "Nome" ],
+      "properties" : {
+        "ID_Film" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Nome" : {
+          "type" : "string"
+        },
+        "Durata" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "DataUscita" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Copie" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Genere" : {
+          "type" : "string"
         }
       }
     },

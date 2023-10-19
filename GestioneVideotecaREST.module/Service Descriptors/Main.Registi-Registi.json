@@ -2,18 +2,18 @@
   "swagger" : "2.0",
   "info" : {
     "version" : "1.0",
-    "title" : "Anagrafica",
-    "description" : "Anagrafica service"
+    "title" : "Registi",
+    "description" : "Registi service"
   },
   "host" : "localhost:8080",
   "basePath" : "/",
   "schemes" : [ "http" ],
   "paths" : {
-    "/anagrafica/" : {
+    "/registi" : {
       "post" : {
-        "summary" : "postAnagrafica",
-        "description" : "postAnagrafica",
-        "operationId" : "post-anagrafica",
+        "summary" : "postRegisti",
+        "description" : "postRegisti",
+        "operationId" : "post-registi",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -35,9 +35,9 @@
         }
       },
       "get" : {
-        "summary" : "getAnagrafica",
-        "description" : "getAnagrafica",
-        "operationId" : "get-anagrafica",
+        "summary" : "getRegisti",
+        "description" : "getRegisti",
+        "operationId" : "get-registi",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ ],
@@ -51,9 +51,9 @@
         }
       },
       "put" : {
-        "summary" : "putAnagrafica",
-        "description" : "putAnagrafica",
-        "operationId" : "put-anagrafica",
+        "summary" : "putRegisti",
+        "description" : "putRegisti",
+        "operationId" : "put-registi",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -61,7 +61,7 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequestModify"
           },
           "required" : true
         } ],
@@ -75,17 +75,18 @@
         }
       },
       "delete" : {
-        "summary" : "deleteAnagrafica",
-        "description" : "deleteAnagrafica",
-        "operationId" : "delete-anagrafica",
+        "summary" : "deleteRegisti",
+        "description" : "deleteRegisti",
+        "operationId" : "delete-registi",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "Email",
+          "name" : "ID_Regista",
           "in" : "query",
           "description" : "",
-          "type" : "string",
-          "required" : false
+          "type" : "integer",
+          "format" : "int32",
+          "required" : true
         } ],
         "responses" : {
           "200" : {
@@ -99,66 +100,60 @@
     }
   },
   "definitions" : {
-    "Dati" : {
+    "ListaRegisti" : {
       "type" : "object",
-      "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
+      "required" : [ "ID_Regista", "Nome", "Cognome" ],
       "properties" : {
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
         "Nome" : {
           "type" : "string"
         },
         "Cognome" : {
-          "type" : "string"
-        },
-        "DataNascita" : {
-          "type" : "string",
-          "format" : "date"
-        },
-        "Citta" : {
-          "type" : "string"
-        },
-        "Indirizzo" : {
-          "type" : "string"
-        },
-        "Email" : {
           "type" : "string"
         }
       }
     },
     "RequestAdd" : {
       "type" : "object",
-      "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
+      "required" : [ "Nome", "Cognome" ],
       "properties" : {
         "Nome" : {
           "type" : "string"
         },
         "Cognome" : {
           "type" : "string"
-        },
-        "DataNascita" : {
-          "type" : "string",
-          "format" : "date"
-        },
-        "Citta" : {
-          "type" : "string"
-        },
-        "Indirizzo" : {
-          "type" : "string"
-        },
-        "Email" : {
-          "type" : "string"
         }
       }
     },
     "ResponseSelect" : {
       "type" : "object",
-      "required" : [ "Dati" ],
+      "required" : [ "ListaRegisti" ],
       "properties" : {
-        "Dati" : {
+        "ListaRegisti" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Dati",
+            "$ref" : "#/definitions/ListaRegisti",
             "uniqueItems" : false
           }
+        }
+      }
+    },
+    "RequestModify" : {
+      "type" : "object",
+      "required" : [ "ID_Regista", "Nome", "Cognome" ],
+      "properties" : {
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Nome" : {
+          "type" : "string"
+        },
+        "Cognome" : {
+          "type" : "string"
         }
       }
     },

@@ -2,8 +2,9 @@
 <sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_BgnHoGzHEe6qZ_-8iKYSTA" targetNamespace="http://tns.tibco.com/bw/composite/GestioneVideotecaREST.module" name="GestioneVideotecaREST.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
   <sca:service xmi:id="_Dey0Em2iEe61XZWOz3q7xg" name="anagrafica" promote="ComponentAnagrafica/anagrafica">
     <sca:interface.wsdl xmi:id="_Dey0Fm2iEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231018123256PLT#wsdl.interface(anagrafica)" scaext:wsdlLocation="../Processes/Main/Anagrafica.bwp"/>
-    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_DezbIG2iEe61XZWOz3q7xg" name="RestService" path="/anagrafica/{Email}" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="Anagrafica" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Main.Anagrafica-Anagrafica.json">
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_DezbIG2iEe61XZWOz3q7xg" name="RestService" path="/anagrafica/" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="Anagrafica" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Main.Anagrafica-Anagrafica.json">
       <operation xmi:id="_DezbIm2iEe61XZWOz3q7xg" operationName="post" nickname="post-anagrafica" httpMethod="POST" notes="postAnagrafica" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <parameters xmi:id="_MyKSQG5lEe61XZWOz3q7xg"/>
         <clientFormat>json</clientFormat>
         <clientRequestFormat>json</clientRequestFormat>
       </operation>
@@ -16,15 +17,125 @@
         <clientRequestFormat>json</clientRequestFormat>
       </operation>
       <operation xmi:id="_DezbJW2iEe61XZWOz3q7xg" operationName="delete" nickname="delete-anagrafica" httpMethod="DELETE" notes="deleteAnagrafica" responseStyle="element" outputPartName="ResponseDelete">
+        <parameters xmi:id="_CItusG5iEe61XZWOz3q7xg">
+          <parameterMapping xmi:id="_CIuVwG5iEe61XZWOz3q7xg" parameterName="Email" parameterType="Query" dataType="string" description=""/>
+        </parameters>
         <clientFormat>json</clientFormat>
         <clientRequestFormat>json</clientRequestFormat>
       </operation>
-      <parameters xmi:id="_DfAPcG2iEe61XZWOz3q7xg">
-        <parameterMapping xmi:id="_DfAPcW2iEe61XZWOz3q7xg" parameterName="Email" parameterType="Path" required="true" description=""/>
-      </parameters>
       <advancedConfig xmi:id="_DezbIW2iEe61XZWOz3q7xg" blockingQueueSize="2147483647"/>
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_DezbJm2iEe61XZWOz3q7xg" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_kX2ycG27Ee61XZWOz3q7xg" name="datifilm" promote="ComponentDatiFilm/datifilm">
+    <sca:interface.wsdl xmi:id="_kX3ZgG27Ee61XZWOz3q7xg" interface="http://xmlns.example.com/20231018153600PLT#wsdl.interface(datifilm)" scaext:wsdlLocation="../Processes/Main/DatiFilm.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_kX4AkG27Ee61XZWOz3q7xg" name="RestService1" path="/datifilm" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="DatiFilm" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Main.DatiFilm-DatiFilm.json">
+      <operation xmi:id="_kX4noG27Ee61XZWOz3q7xg" operationName="post" nickname="post-datifilm" httpMethod="POST" notes="postDatiFilm" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <parameters xmi:id="_cqAUsG5lEe61XZWOz3q7xg"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_kX4noW27Ee61XZWOz3q7xg" operationName="get" nickname="get-datifilm" httpMethod="GET" notes="getDatiFilm" responseStyle="element" outputPartName="ResponseSelect">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_kX4nom27Ee61XZWOz3q7xg" operationName="put" nickname="put-datifilm" httpMethod="PUT" notes="putDatiFilm" responseStyle="element" requestStyle="element" outputPartName="ResponseModify">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_kX4no227Ee61XZWOz3q7xg" operationName="delete" nickname="delete-datifilm" httpMethod="DELETE" notes="deleteDatiFilm" responseStyle="element" outputPartName="ResponseDelete">
+        <parameters xmi:id="_vTcqIG5nEe61XZWOz3q7xg">
+          <parameterMapping xmi:id="_vTcqIW5nEe61XZWOz3q7xg" parameterName="ID_Film" parameterType="Query" dataType="integer#int32" required="true" description=""/>
+        </parameters>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_kX_VUG27Ee61XZWOz3q7xg"/>
+      <advancedConfig xmi:id="_kX4AkW27Ee61XZWOz3q7xg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_kX4npG27Ee61XZWOz3q7xg" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_yzxtYm5TEe61XZWOz3q7xg" name="negozi" promote="ComponentNegozi/negozi">
+    <sca:interface.wsdl xmi:id="_yzxtZm5TEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231019094542PLT#wsdl.interface(negozi)" scaext:wsdlLocation="../Processes/Main/Negozi.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_yzxtZ25TEe61XZWOz3q7xg" name="RestService2" path="/negozi" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="Negozi" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Main.Negozi-Negozi.json">
+      <operation xmi:id="_yzxtaW5TEe61XZWOz3q7xg" operationName="post" nickname="post-negozi" httpMethod="POST" notes="postNegozi" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_yzxtam5TEe61XZWOz3q7xg" operationName="get" nickname="get-negozi" httpMethod="GET" notes="getNegozi" responseStyle="element" outputPartName="ResponseSelect">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_yzxta25TEe61XZWOz3q7xg" operationName="put" nickname="put-negozi" httpMethod="PUT" notes="putNegozi" responseStyle="element" requestStyle="element" outputPartName="ResponseModify">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_yzxtbG5TEe61XZWOz3q7xg" operationName="delete" nickname="delete-negozi" httpMethod="DELETE" notes="deleteNegozi" responseStyle="element" outputPartName="ResponseDelete">
+        <parameters xmi:id="_2hoaAG5lEe61XZWOz3q7xg">
+          <parameterMapping xmi:id="_2hpBEG5lEe61XZWOz3q7xg" parameterName="ID_Negozio" parameterType="Query" dataType="integer#int32" required="true" description=""/>
+        </parameters>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_y0EoUG5TEe61XZWOz3q7xg"/>
+      <advancedConfig xmi:id="_yzxtaG5TEe61XZWOz3q7xg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_yzxtbW5TEe61XZWOz3q7xg" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_fGcxsm5UEe61XZWOz3q7xg" name="prenotazioni" promote="ComponentPrenotazioni/prenotazioni">
+    <sca:interface.wsdl xmi:id="_fGiRQm5UEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231019095059PLT#wsdl.interface(prenotazioni)" scaext:wsdlLocation="../Processes/Main/Prenotazioni.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_fGiRQ25UEe61XZWOz3q7xg" name="RestService3" path="/prenotazioni" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="Prenotazioni" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Main.Prenotazioni-Prenotazioni.json">
+      <operation xmi:id="_fGiRRW5UEe61XZWOz3q7xg" operationName="post" nickname="post-prenotazioni" httpMethod="POST" notes="postPrenotazioni" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_fGiRRm5UEe61XZWOz3q7xg" operationName="get" nickname="get-prenotazioni" httpMethod="GET" notes="getPrenotazioni" responseStyle="element" outputPartName="ResponseSelect">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_fGiRR25UEe61XZWOz3q7xg" operationName="put" nickname="put-prenotazioni" httpMethod="PUT" notes="putPrenotazioni" responseStyle="element" requestStyle="element" outputPartName="ResponseModify">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_fGiRSG5UEe61XZWOz3q7xg" operationName="delete" nickname="delete-prenotazioni" httpMethod="DELETE" notes="deletePrenotazioni" responseStyle="element" outputPartName="ResponseDelete">
+        <parameters xmi:id="_Oztd0G5mEe61XZWOz3q7xg">
+          <parameterMapping xmi:id="_OzuE4G5mEe61XZWOz3q7xg" parameterName="Email" parameterType="Query" dataType="string" required="true" description=""/>
+          <parameterMapping xmi:id="_Qxv30G5mEe61XZWOz3q7xg" parameterName="ID_Film" parameterType="Query" dataType="integer#int32" required="true" description=""/>
+        </parameters>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_fG-9MG5UEe61XZWOz3q7xg"/>
+      <advancedConfig xmi:id="_fGiRRG5UEe61XZWOz3q7xg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_fGiRSW5UEe61XZWOz3q7xg" bindingName="RestService3"/>
+  </sca:service>
+  <sca:service xmi:id="_-4EwQm5UEe61XZWOz3q7xg" name="registi" promote="ComponentRegisti/registi">
+    <sca:interface.wsdl xmi:id="_-4EwRm5UEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231019095436PLT#wsdl.interface(registi)" scaext:wsdlLocation="../Processes/Main/Registi.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_-4EwR25UEe61XZWOz3q7xg" name="RestService4" path="/registi" docBasePath="http://localhost:7777/GestioneVideotecaREST.module" docResourcePath="Registi" basePath="/" connector="gestionevideotecarest.module.Add" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Main.Registi-Registi.json">
+      <operation xmi:id="_-4EwSW5UEe61XZWOz3q7xg" operationName="post" nickname="post-registi" httpMethod="POST" notes="postRegisti" responseStyle="element" requestStyle="element" outputPartName="ResponseAdd">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_-4EwSm5UEe61XZWOz3q7xg" operationName="get" nickname="get-registi" httpMethod="GET" notes="getRegisti" responseStyle="element" outputPartName="ResponseSelect">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_-4EwS25UEe61XZWOz3q7xg" operationName="put" nickname="put-registi" httpMethod="PUT" notes="putRegisti" responseStyle="element" requestStyle="element" outputPartName="ResponseModify">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <operation xmi:id="_-4EwTG5UEe61XZWOz3q7xg" operationName="delete" nickname="delete-registi" httpMethod="DELETE" notes="deleteRegisti" responseStyle="element" outputPartName="ResponseDelete">
+        <parameters xmi:id="_oRA-oG5mEe61XZWOz3q7xg">
+          <parameterMapping xmi:id="_oRA-oW5mEe61XZWOz3q7xg" parameterName="ID_Regista" parameterType="Query" dataType="integer#int32" required="true" description=""/>
+        </parameters>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_-4r0QG5UEe61XZWOz3q7xg"/>
+      <advancedConfig xmi:id="_-4EwSG5UEe61XZWOz3q7xg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_-4EwTW5UEe61XZWOz3q7xg" bindingName="RestService4"/>
   </sca:service>
   <sca:property xmi:id="_DDLtoGzHEe6qZ_-8iKYSTA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_DDVeoGzHEe6qZ_-8iKYSTA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
@@ -38,7 +149,31 @@
   <sca:component xmi:id="_s4wbUG2hEe61XZWOz3q7xg" name="ComponentAnagrafica" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_s4wbUW2hEe61XZWOz3q7xg" processName="Main.Anagrafica"/>
     <sca:service xmi:id="_Dey0EG2iEe61XZWOz3q7xg" name="anagrafica">
-      <sca:interface.wsdl xmi:id="_Dey0EW2iEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231018123256PLT#wsdl.interface(anagrafica)" scaext:wsdlLocation="../Processes/Main/Anagrafica.bwp"/>
+      <sca:interface.wsdl xmi:id="_Dey0EW2iEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231018123256PLT#wsdl.interface(anagrafica)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_Ru56UG27Ee61XZWOz3q7xg" name="ComponentDatiFilm" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Ru6hYG27Ee61XZWOz3q7xg" processName="Main.DatiFilm"/>
+    <sca:service xmi:id="_kX2LYG27Ee61XZWOz3q7xg" name="datifilm">
+      <sca:interface.wsdl xmi:id="_kX2LYW27Ee61XZWOz3q7xg" interface="http://xmlns.example.com/20231018153600PLT#wsdl.interface(datifilm)" scaext:wsdlLocation="../Processes/Main/DatiFilm.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_gW6JcG5TEe61XZWOz3q7xg" name="ComponentNegozi" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_gW6JcW5TEe61XZWOz3q7xg" processName="Main.Negozi"/>
+    <sca:service xmi:id="_yzxtYG5TEe61XZWOz3q7xg" name="negozi">
+      <sca:interface.wsdl xmi:id="_yzxtYW5TEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231019094542PLT#wsdl.interface(negozi)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_Pl_UgG5UEe61XZWOz3q7xg" name="ComponentPrenotazioni" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Pl_UgW5UEe61XZWOz3q7xg" processName="Main.Prenotazioni"/>
+    <sca:service xmi:id="_fGcxsG5UEe61XZWOz3q7xg" name="prenotazioni">
+      <sca:interface.wsdl xmi:id="_fGcxsW5UEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231019095059PLT#wsdl.interface(prenotazioni)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_v2NTkG5UEe61XZWOz3q7xg" name="ComponentRegisti" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_v2NTkW5UEe61XZWOz3q7xg" processName="Main.Registi"/>
+    <sca:service xmi:id="_-4EwQG5UEe61XZWOz3q7xg" name="registi">
+      <sca:interface.wsdl xmi:id="_-4EwQW5UEe61XZWOz3q7xg" interface="http://xmlns.example.com/20231019095436PLT#wsdl.interface(registi)"/>
     </sca:service>
   </sca:component>
 </sca:composite>
