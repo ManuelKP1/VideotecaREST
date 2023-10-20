@@ -21,15 +21,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequestAddPrenotazione"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponsePrenotazioni to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponsePrenotazioni"
             }
           }
         }
@@ -43,9 +43,9 @@
         "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseSelect to be returned",
+            "description" : "a ResponseSelectPrenotazioni to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseSelect"
+              "$ref" : "#/definitions/ResponseSelectPrenotazioni"
             }
           }
         }
@@ -61,15 +61,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequestAddPrenotazione"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponsePrenotazioni to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponsePrenotazioni"
             }
           }
         }
@@ -96,9 +96,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponsePrenotazioni to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponsePrenotazioni"
             }
           }
         }
@@ -106,7 +106,7 @@
     }
   },
   "definitions" : {
-    "RequestAdd" : {
+    "RequestAddPrenotazione" : {
       "type" : "object",
       "required" : [ "ID_Film", "email" ],
       "properties" : {
@@ -119,7 +119,7 @@
         }
       }
     },
-    "ResponseSelect" : {
+    "ResponseSelectPrenotazioni" : {
       "type" : "object",
       "required" : [ "Prenotazione" ],
       "properties" : {
@@ -145,7 +145,7 @@
         }
       }
     },
-    "ResponseAdd" : {
+    "ResponsePrenotazioni" : {
       "type" : "object",
       "required" : [ "reponse" ],
       "properties" : {

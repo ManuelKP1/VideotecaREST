@@ -16,7 +16,7 @@
     	</sequence>
     </complexType>
 
-    <element name="RequestAdd" type="tns:DatiNegozio.Type"></element>
+    <element name="RequestAddNegozio" type="tns:DatiNegozio.Type"></element>
 
     <complexType name="ListaNegozi.Type">
     	<sequence>
@@ -30,11 +30,11 @@
     	</sequence>
     </complexType>
 
-    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+    <element name="ResponseNegozio" type="tns:ResponseAdd.Type"></element>
 
-    <element name="ResponseSelect" type="tns:ListaNegozi.Type"></element>
+    <element name="ResponseSelectNegozio" type="tns:ListaNegozi.Type"></element>
 
-    <element name="RequestDelete" type="tns:RequesteDelete.Type"></element>
+    <element name="RequestDeleteNegozio" type="tns:RequesteDelete.Type"></element>
 
     <complexType name="RequesteDelete.Type">
     	<sequence>
@@ -42,5 +42,5 @@
     	</sequence>
     </complexType>
 
-    <element name="RequesteModify" type="tns:DatiNegozioCompleto.Type"></element>
+    <element name="RequesteModifyNegozio" type="tns:DatiNegozioCompleto.Type"></element>
 </schema>

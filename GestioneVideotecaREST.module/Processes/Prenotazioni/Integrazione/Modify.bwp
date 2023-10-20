@@ -386,7 +386,7 @@
         productVersion="6.9.1 V17 2023-05-19" scalable="true"
         singleton="true" stateless="false" type="IT"/>
     <tibex:ProcessInterface context=""
-        input="{http://www.example.org/Prenotazioni}RequestAdd" output="{http://www.example.org/Prenotazioni}ResponseAdd"/>
+        input="{http://www.example.org/Prenotazioni}RequestAddPrenotazione" output="{http://www.example.org/Prenotazioni}ResponsePrenotazioni"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -606,10 +606,10 @@
             name="JDBCUpdate" sca-bpel:internal="true"/>
         <bpws:variable element="ns2:ActivityErrorData"
             name="_error_JDBCUpdate" sca-bpel:internal="true"/>
-        <bpws:variable element="ns3:RequestAdd" name="Start"
+        <bpws:variable element="ns3:RequestAddPrenotazione" name="Start"
             sca-bpel:internal="true" tibex:parameter="in"/>
-        <bpws:variable element="ns3:ResponseAdd" name="End-input"
-            sca-bpel:internal="true" tibex:parameter="out"/>
+        <bpws:variable element="ns3:ResponsePrenotazioni"
+            name="End-input" sca-bpel:internal="true" tibex:parameter="out"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -647,7 +647,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.example.org/Prenotazioni&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&lt;tns1:ResponseAdd>&lt;tns1:reponse>&lt;xsl:value-of select=&quot;concat( &amp;quot;La modifica del film con ID: &amp;quot; , string($Start/tns1:ID_Film) , &amp;quot; per l'utente con email: &amp;quot; , $Start/tns1:email , &amp;quot; e' avvenuta con successo. &amp;quot;)&quot;/>&lt;/tns1:reponse>&lt;/tns1:ResponseAdd>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.example.org/Prenotazioni&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Start&quot;/>&#xa;    &lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:ResponsePrenotazioni>&#xa;            &lt;tns1:reponse>&#xa;                &lt;xsl:value-of select=&quot;concat( &amp;quot;La modifica del film con ID: &amp;quot; , string($Start/tns1:ID_Film) , &amp;quot; per l'utente con email: &amp;quot; , $Start/tns1:email , &amp;quot; e' avvenuta con successo. &amp;quot;)&quot;/>&#xa;            &lt;/tns1:reponse>&#xa;        &lt;/tns1:ResponsePrenotazioni>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

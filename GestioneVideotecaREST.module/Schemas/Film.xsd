@@ -12,9 +12,9 @@
     	</sequence>
     </complexType>
 
-    <element name="RequestAdd" type="tns:DatiFilm.Type"></element>
+    <element name="RequestAddFilm" type="tns:DatiFilm.Type"></element>
 
-    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+    <element name="ResponseFilm" type="tns:ResponseAdd.Type"></element>
 
     <complexType name="ResponseAdd.Type">
     	<sequence>
@@ -41,9 +41,9 @@
     	</sequence>
     </complexType>
 
-    <element name="ResponseSelect" type="tns:Lista.Type"></element>
+    <element name="ResponseSelectFilm" type="tns:Lista.Type"></element>
 
-    <element name="RequestDelete" type="tns:RequestDelete.Type"></element>
+    <element name="RequestDeleteFilm" type="tns:RequestDelete.Type"></element>
 
     <complexType name="RequestDelete.Type">
     	<sequence>
@@ -51,5 +51,11 @@
     	</sequence>
     </complexType>
 
-    <element name="RequestModify" type="tns:DatiFilmCompleto.Type"></element>
+    <element name="RequestModifyFilm" type="tns:DatiFilmCompleto.Type"></element>
+
+    <complexType name="TypeProva.Type">
+    	<sequence>
+    		<element name="Prova" type="string"></element>
+    	</sequence>
+    </complexType>
 </schema>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Prenotazioni" xmlns:tns="http://www.example.org/Prenotazioni" elementFormDefault="qualified">
 
-    <element name="RequestAdd" type="tns:Prenotazione.Type"></element>
+    <element name="RequestAddPrenotazione" type="tns:Prenotazione.Type"></element>
 
     <complexType name="Prenotazione.Type">
     	<sequence>
@@ -16,9 +16,9 @@
     	</sequence>
     </complexType>
 
-    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+    <element name="ResponsePrenotazioni" type="tns:ResponseAdd.Type"></element>
 
-    <element name="ResponseSelect" type="tns:Prenotazioni.Type"></element>
+    <element name="ResponseSelectPrenotazioni" type="tns:Prenotazioni.Type"></element>
 
     <complexType name="Prenotazioni.Type">
     	<sequence>

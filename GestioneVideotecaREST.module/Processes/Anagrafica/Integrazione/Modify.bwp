@@ -390,7 +390,7 @@
         productVersion="6.9.1 V17 2023-05-19" scalable="true"
         singleton="true" stateless="false" type="IT"/>
     <tibex:ProcessInterface context=""
-        input="{http://www.example.org/Anagrafica}RequestAdd" output="{http://www.example.org/Anagrafica}ResponseAdd"/>
+        input="{http://www.example.org/Anagrafica}RequestAddAnagrafica" output="{http://www.example.org/Anagrafica}ResponseAnagrafica"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -610,9 +610,9 @@
             name="JDBCUpdate" sca-bpel:internal="true"/>
         <bpws:variable element="ns2:ActivityErrorData"
             name="_error_JDBCUpdate" sca-bpel:internal="true"/>
-        <bpws:variable element="ns3:RequestAdd" name="Start"
+        <bpws:variable element="ns3:RequestAddAnagrafica" name="Start"
             sca-bpel:internal="true" tibex:parameter="in"/>
-        <bpws:variable element="ns3:ResponseAdd" name="End-input"
+        <bpws:variable element="ns3:ResponseAnagrafica" name="End-input"
             sca-bpel:internal="true" tibex:parameter="out"/>
     </bpws:variables>
     <bpws:extensions>
@@ -651,7 +651,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&lt;tns1:ResponseAdd>&lt;tns1:Response>&lt;xsl:value-of select=&quot;&amp;quot; L'aggiornamento della tabella e' avvenuto con successo. &amp;quot;&quot;/>&lt;/tns1:Response>&lt;/tns1:ResponseAdd>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.example.org/Anagrafica&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:ResponseAnagrafica>&#xa;            &lt;tns1:Response>&#xa;                &lt;xsl:value-of select=&quot;&amp;quot; L'aggiornamento della tabella e' avvenuto con successo. &amp;quot;&quot;/>&#xa;            &lt;/tns1:Response>&#xa;        &lt;/tns1:ResponseAnagrafica>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

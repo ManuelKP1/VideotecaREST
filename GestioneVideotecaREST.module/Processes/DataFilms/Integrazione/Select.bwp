@@ -343,7 +343,7 @@
         extraErrorVars="true" modifiers="public"
         productVersion="6.9.1 V17 2023-05-19" scalable="true"
         singleton="true" stateless="false" type="IT"/>
-    <tibex:ProcessInterface context="" input="" output="{http://www.example.org/Film}ResponseSelect"/>
+    <tibex:ProcessInterface context="" input="" output="{http://www.example.org/Film}ResponseSelectFilm"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -563,7 +563,7 @@
         <bpws:variable element="ns1:resultSet" name="JDBCQuery" sca-bpel:internal="true"/>
         <bpws:variable element="ns2:ActivityErrorData"
             name="_error_JDBCQuery" sca-bpel:internal="true"/>
-        <bpws:variable element="ns3:ResponseSelect" name="End-input"
+        <bpws:variable element="ns3:ResponseSelectFilm" name="End-input"
             sca-bpel:internal="true" tibex:parameter="out"/>
     </bpws:variables>
     <bpws:extensions>
@@ -601,7 +601,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JDBCQuery&quot;/>&lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&lt;tns:ResponseSelect>&lt;xsl:for-each select=&quot;$JDBCQuery/Record&quot;>&lt;tns:ListaFilm>&lt;tns:ID_Film>&lt;xsl:value-of select=&quot;ID_Film&quot;/>&lt;/tns:ID_Film>&lt;tns:Nome>&lt;xsl:value-of select=&quot;Nome&quot;/>&lt;/tns:Nome>&lt;tns:Durata>&lt;xsl:value-of select=&quot;Durata&quot;/>&lt;/tns:Durata>&lt;tns:DataUscita>&lt;xsl:value-of select=&quot;DataUscita&quot;/>&lt;/tns:DataUscita>&lt;tns:ID_Regista>&lt;xsl:value-of select=&quot;ID_Regista&quot;/>&lt;/tns:ID_Regista>&lt;tns:Copie>&lt;xsl:value-of select=&quot;Copie&quot;/>&lt;/tns:Copie>&lt;tns:Genere>&lt;xsl:value-of select=&quot;Genere&quot;/>&lt;/tns:Genere>&lt;/tns:ListaFilm>&lt;/xsl:for-each>&lt;/tns:ResponseSelect>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;JDBCQuery&quot;/>&#xa;    &lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelectFilm>&#xa;            &lt;xsl:for-each select=&quot;$JDBCQuery/Record&quot;>&#xa;                &lt;tns:ListaFilm>&#xa;                    &lt;tns:ID_Film>&#xa;                        &lt;xsl:value-of select=&quot;ID_Film&quot;/>&#xa;                    &lt;/tns:ID_Film>&#xa;                    &lt;tns:Nome>&#xa;                        &lt;xsl:value-of select=&quot;Nome&quot;/>&#xa;                    &lt;/tns:Nome>&#xa;                    &lt;tns:Durata>&#xa;                        &lt;xsl:value-of select=&quot;Durata&quot;/>&#xa;                    &lt;/tns:Durata>&#xa;                    &lt;tns:DataUscita>&#xa;                        &lt;xsl:value-of select=&quot;DataUscita&quot;/>&#xa;                    &lt;/tns:DataUscita>&#xa;                    &lt;tns:ID_Regista>&#xa;                        &lt;xsl:value-of select=&quot;ID_Regista&quot;/>&#xa;                    &lt;/tns:ID_Regista>&#xa;                    &lt;tns:Copie>&#xa;                        &lt;xsl:value-of select=&quot;Copie&quot;/>&#xa;                    &lt;/tns:Copie>&#xa;                    &lt;tns:Genere>&#xa;                        &lt;xsl:value-of select=&quot;Genere&quot;/>&#xa;                    &lt;/tns:Genere>&#xa;                &lt;/tns:ListaFilm>&#xa;            &lt;/xsl:for-each>&#xa;        &lt;/tns:ResponseSelectFilm>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

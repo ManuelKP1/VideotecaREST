@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Anagrafica" xmlns:tns="http://www.example.org/Anagrafica" elementFormDefault="qualified">
 
-    <element name="RequestAdd" type="tns:DatiAnagrafici.Type"></element>
+    <element name="RequestAddAnagrafica" type="tns:DatiAnagrafici.Type"></element>
 
     <complexType name="DatiAnagrafici.Type">
     	<sequence>
@@ -14,7 +14,7 @@
     	</sequence>
     </complexType>
 
-    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+    <element name="ResponseAnagrafica" type="tns:ResponseAdd.Type"></element>
 
     <complexType name="ResponseAdd.Type">
     	<sequence>
@@ -28,9 +28,9 @@
     	</sequence>
     </complexType>
     
-    <element name="ResponseSelect" type="tns:Select.Type"></element>
+    <element name="ResponseSelectAnagrafica" type="tns:Select.Type"></element>
 
-    <element name="RequestDelete" type="tns:RequestDelete.Type"></element>
+    <element name="RequestDeleteAnagrafica" type="tns:RequestDelete.Type"></element>
 
     <complexType name="RequestDelete.Type">
     	<sequence>

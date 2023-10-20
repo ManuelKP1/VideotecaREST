@@ -335,7 +335,7 @@
         extraErrorVars="true" modifiers="public"
         productVersion="6.9.1 V17 2023-05-19" scalable="true"
         singleton="true" stateless="false" type="IT"/>
-    <tibex:ProcessInterface context="" input="" output="{http://www.example.org/Negozio}ResponseSelect"/>
+    <tibex:ProcessInterface context="" input="" output="{http://www.example.org/Negozio}ResponseSelectNegozio"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -551,8 +551,8 @@
         <bpws:variable element="ns1:resultSet" name="JDBCQuery" sca-bpel:internal="true"/>
         <bpws:variable element="ns2:ActivityErrorData"
             name="_error_JDBCQuery" sca-bpel:internal="true"/>
-        <bpws:variable element="ns3:ResponseSelect" name="End-input"
-            sca-bpel:internal="true" tibex:parameter="out"/>
+        <bpws:variable element="ns3:ResponseSelectNegozio"
+            name="End-input" sca-bpel:internal="true" tibex:parameter="out"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -589,7 +589,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JDBCQuery&quot;/>&lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&lt;tns:ResponseSelect>&lt;xsl:for-each select=&quot;$JDBCQuery/Record&quot;>&lt;tns:Negozi>&lt;tns:ID_Negozio>&lt;xsl:value-of select=&quot;ID_Negozio&quot;/>&lt;/tns:ID_Negozio>&lt;tns:citta>&lt;xsl:value-of select=&quot;Citta&quot;/>&lt;/tns:citta>&lt;tns:Indirizzo>&lt;xsl:value-of select=&quot;Indirizzo&quot;/>&lt;/tns:Indirizzo>&lt;/tns:Negozi>&lt;/xsl:for-each>&lt;/tns:ResponseSelect>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;JDBCQuery&quot;/>&#xa;    &lt;xsl:template name=&quot;End-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelectNegozio>&#xa;            &lt;xsl:for-each select=&quot;$JDBCQuery/Record&quot;>&#xa;                &lt;tns:Negozi>&#xa;                    &lt;tns:ID_Negozio>&#xa;                        &lt;xsl:value-of select=&quot;ID_Negozio&quot;/>&#xa;                    &lt;/tns:ID_Negozio>&#xa;                    &lt;tns:citta>&#xa;                        &lt;xsl:value-of select=&quot;Citta&quot;/>&#xa;                    &lt;/tns:citta>&#xa;                    &lt;tns:Indirizzo>&#xa;                        &lt;xsl:value-of select=&quot;Indirizzo&quot;/>&#xa;                    &lt;/tns:Indirizzo>&#xa;                &lt;/tns:Negozi>&#xa;            &lt;/xsl:for-each>&#xa;        &lt;/tns:ResponseSelectNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

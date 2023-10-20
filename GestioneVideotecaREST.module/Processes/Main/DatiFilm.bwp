@@ -235,15 +235,14 @@
             <wsdl:import namespace="http://xmlns.example.com/DatiFilm/parameters"/>
             <wsdl:import namespace="http://www.example.org/Regista"/>
             <wsdl:message name="postRequest">
-                <wsdl:part element="extns1:RequestAdd" name="item" tibex:hasMultipleNamespaces="false"/>
+                <wsdl:part element="extns1:RequestAddFilm" name="item" tibex:hasMultipleNamespaces="false"/>
                 <wsdl:part element="extns:httpHeaders"
                     name="httpHeaders" tibex:source="bw.rest"/>
                 <wsdl:part element="extns2:datifilmPostParameters"
                     name="parameters" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="postResponse">
-                <wsdl:part element="extns1:ResponseAdd"
-                    name="ResponseAdd" tibex:hasMultipleNamespaces="false"/>
+                <wsdl:part element="extns1:ResponseFilm" name="item" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="post4XXFaultMessage">
                 <wsdl:part element="extns:client4XXError" name="clientError"/>
@@ -256,7 +255,7 @@
                     name="httpHeaders" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="getResponse">
-                <wsdl:part element="extns1:ResponseSelect"
+                <wsdl:part element="extns1:ResponseSelectFilm"
                     name="ResponseSelect" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="get4XXFaultMessage">
@@ -266,13 +265,13 @@
                 <wsdl:part element="extns:server5XXError" name="serverError"/>
             </wsdl:message>
             <wsdl:message name="putRequest">
-                <wsdl:part element="extns1:RequestModify"
+                <wsdl:part element="extns1:RequestModifyFilm"
                     name="RequestModify" tibex:hasMultipleNamespaces="false"/>
                 <wsdl:part element="extns:httpHeaders"
                     name="httpHeaders" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="putResponse">
-                <wsdl:part element="extns1:ResponseAdd"
+                <wsdl:part element="extns1:ResponseFilm"
                     name="ResponseModify" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="put4XXFaultMessage">
@@ -288,7 +287,7 @@
                     name="parameters" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="deleteResponse">
-                <wsdl:part element="extns1:ResponseAdd"
+                <wsdl:part element="extns1:ResponseFilm"
                     name="ResponseDelete" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="delete4XXFaultMessage">
@@ -1674,13 +1673,15 @@
         <bpws:variable messageType="ns0:deleteRequest" name="delete" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns0:deleteResponse"
             name="deleteOut-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequestAdd" name="Add-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Add" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseSelect" name="Select" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequestModify" name="Modify-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Modify" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequestDelete" name="Delete-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Delete" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequestAddFilm" name="Add-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseFilm" name="Add" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseSelectFilm" name="Select" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequestModifyFilm"
+            name="Modify-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseFilm" name="Modify" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequestDeleteFilm"
+            name="Delete-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseFilm" name="Delete" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -1712,17 +1713,17 @@
                                 tibex:xpdlId="277bc58e-9d2d-42fd-abe1-b3d34ca7edbc" variable="postOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018153600PLT&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Add&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Add/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018153600PLT&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Add&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseFilm>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Add/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseFilm>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018153600PLT" xmlns:tns="http://www.example.org/Film" version="2.0"&gt;&lt;xsl:param name="Add"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns1:postResponse&gt;&lt;ResponseAdd&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Add/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseAdd&gt;&lt;/tns1:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018153600PLT" xmlns:tns="http://www.example.org/Film" version="2.0"&gt;&lt;xsl:param name="Add"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns1:postResponse&gt;&lt;item&gt;&lt;tns:ResponseFilm&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Add/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseFilm&gt;&lt;/item&gt;&lt;/tns1:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="AddTopostOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;post&quot;/>&lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&lt;xsl:copy-of select=&quot;$post/item/tns:RequestAdd&quot;/>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post&quot;/>&#xa;    &lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$post/item/tns:RequestAddFilm&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Add-input" name="Add"
                                     outputVariable="Add"
@@ -1760,10 +1761,21 @@
                                 tibex:xpdlId="e87889be-f235-4cdd-8187-538bb9397ccc" variable="getOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018153600PLT&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Select&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelect>&#xa;            &lt;xsl:copy-of select=&quot;$Select/tns:ListaFilm&quot;/>&#xa;        &lt;/tns:ResponseSelect>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018153600PLT&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Select&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelectFilm>&#xa;            &lt;xsl:copy-of select=&quot;$Select/tns:ListaFilm&quot;/>&#xa;        &lt;/tns:ResponseSelectFilm>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018153600PLT" xmlns:tns="http://www.example.org/Film" version="2.0"&gt;&lt;xsl:param name="Select"/&gt;&lt;xsl:template name="getOut-input" match="/"&gt;&lt;tns1:getResponse&gt;&lt;ResponseSelect&gt;&lt;tns:ResponseSelect&gt;&lt;xsl:copy-of select="$Select/tns:ListaFilm"/&gt;&lt;/tns:ResponseSelect&gt;&lt;/ResponseSelect&gt;&lt;/tns1:getResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018153600PLT" xmlns:tns="http://www.example.org/Film" version="2.0"&gt;
+    &lt;xsl:param name="Select"/&gt;
+    &lt;xsl:template name="getOut-input" match="/"&gt;
+        &lt;tns1:getResponse&gt;
+            &lt;ResponseSelect&gt;
+                &lt;tns:ResponseSelectFilm&gt;
+                    &lt;xsl:copy-of select="$Select/tns:ListaFilm"/&gt;
+                &lt;/tns:ResponseSelectFilm&gt;
+            &lt;/ResponseSelect&gt;
+        &lt;/tns1:getResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="SelectTogetOut"/>
                                 </bpws:targets>
@@ -1801,17 +1813,30 @@
                                 tibex:xpdlId="c9a04e78-b91c-4480-a64d-66f8d5447dcd" variable="putOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018153600PLT&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Modify&quot;/>&#xa;    &lt;xsl:template name=&quot;putOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Modify/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018153600PLT&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Modify&quot;/>&#xa;    &lt;xsl:template name=&quot;putOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseFilm>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Modify/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseFilm>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018153600PLT" xmlns:tns="http://www.example.org/Film" version="2.0"&gt;&lt;xsl:param name="Modify"/&gt;&lt;xsl:template name="putOut-input" match="/"&gt;&lt;tns1:putResponse&gt;&lt;ResponseModify&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Modify/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseModify&gt;&lt;/tns1:putResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018153600PLT" xmlns:tns="http://www.example.org/Film" version="2.0"&gt;
+    &lt;xsl:param name="Modify"/&gt;
+    &lt;xsl:template name="putOut-input" match="/"&gt;
+        &lt;tns1:putResponse&gt;
+            &lt;ResponseModify&gt;
+                &lt;tns:ResponseFilm&gt;
+                    &lt;tns:Response&gt;
+                        &lt;xsl:value-of select="$Modify/tns:Response"/&gt;
+                    &lt;/tns:Response&gt;
+                &lt;/tns:ResponseFilm&gt;
+            &lt;/ResponseModify&gt;
+        &lt;/tns1:putResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="ModifyToputOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;put&quot;/>&lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&lt;xsl:copy-of select=&quot;$put/RequestModify/tns:RequestModify&quot;/>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;put&quot;/>&#xa;    &lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$put/RequestModify/tns:RequestModifyFilm&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Modify-input"
                                     name="Modify"
@@ -1851,17 +1876,30 @@
                                 tibex:xpdlId="bd47b4c0-11ed-408f-a4e1-8ceb664e3fa8" variable="deleteOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018153600PLT&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Delete&quot;/>&#xa;    &lt;xsl:template name=&quot;deleteOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Delete/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231018153600PLT&quot; xmlns:tns=&quot;http://www.example.org/Film&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Delete&quot;/>&#xa;    &lt;xsl:template name=&quot;deleteOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseFilm>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Delete/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseFilm>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018153600PLT" xmlns:tns="http://www.example.org/Film" version="2.0"&gt;&lt;xsl:param name="Delete"/&gt;&lt;xsl:template name="deleteOut-input" match="/"&gt;&lt;tns1:deleteResponse&gt;&lt;ResponseDelete&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Delete/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseDelete&gt;&lt;/tns1:deleteResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231018153600PLT" xmlns:tns="http://www.example.org/Film" version="2.0"&gt;
+    &lt;xsl:param name="Delete"/&gt;
+    &lt;xsl:template name="deleteOut-input" match="/"&gt;
+        &lt;tns1:deleteResponse&gt;
+            &lt;ResponseDelete&gt;
+                &lt;tns:ResponseFilm&gt;
+                    &lt;tns:Response&gt;
+                        &lt;xsl:value-of select="$Delete/tns:Response"/&gt;
+                    &lt;/tns:Response&gt;
+                &lt;/tns:ResponseFilm&gt;
+            &lt;/ResponseDelete&gt;
+        &lt;/tns1:deleteResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="DeleteTodeleteOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/DatiFilm/parameters&quot; xmlns:tns1=&quot;http://www.example.org/Film&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;delete&quot;/>&lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&lt;tns1:RequestDelete>&lt;tns1:ID_Film>&lt;xsl:value-of select=&quot;xsd:int($delete/parameters/tns:datifilmDeleteParameters/tns:ID_Film)&quot;/>&lt;/tns1:ID_Film>&lt;/tns1:RequestDelete>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/DatiFilm/parameters&quot; xmlns:tns1=&quot;http://www.example.org/Film&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:RequestDeleteFilm>&#xa;            &lt;tns1:ID_Film>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete/parameters/tns:datifilmDeleteParameters/tns:ID_Film)&quot;/>&#xa;            &lt;/tns1:ID_Film>&#xa;        &lt;/tns1:RequestDeleteFilm>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Delete-input"
                                     name="Delete"
@@ -1873,7 +1911,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding coercion=""
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/DatiFilm/parameters&quot; xmlns:tns1=&quot;http://www.example.org/Film&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:RequestDelete>&#xa;            &lt;tns1:ID_Film>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete.parameters/tns:ID_Film)&quot;/>&#xa;            &lt;/tns1:ID_Film>&#xa;        &lt;/tns1:RequestDelete>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://xmlns.example.com/DatiFilm/parameters&quot; xmlns:tns1=&quot;http://www.example.org/Film&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:RequestDeleteFilm>&#xa;            &lt;tns1:ID_Film>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete.parameters/tns:ID_Film)&quot;/>&#xa;            &lt;/tns1:ID_Film>&#xa;        &lt;/tns1:RequestDeleteFilm>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
                                     subProcessName="DataFilms.Integrazione.Delete" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>

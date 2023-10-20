@@ -8,7 +8,7 @@
     	</sequence>
     </complexType>
 
-    <element name="RequestAdd" type="tns:DatiRegista.Type"></element>
+    <element name="RequestAddRegisti" type="tns:DatiRegista.Type"></element>
 
     <complexType name="ResponseAdd.Type">
     	<sequence>
@@ -16,9 +16,9 @@
     	</sequence>
     </complexType>
 
-    <element name="ResponseAdd" type="tns:ResponseAdd.Type"></element>
+    <element name="ResponseRegisti" type="tns:ResponseAdd.Type"></element>
 
-    <element name="ResponseSelect" type="tns:Lista.Type"></element>
+    <element name="ResponseSelectRegisti" type="tns:Lista.Type"></element>
 
 
     <complexType name="ListaRegisti.Type">
@@ -35,7 +35,7 @@
     	</sequence>
     </complexType>
 
-    <element name="RequestDelete" type="tns:RequestDelete.type"></element>
+    <element name="RequestDeleteRegisti" type="tns:RequestDelete.type"></element>
 
     <complexType name="RequestDelete.type">
     	<sequence>
@@ -43,5 +43,5 @@
     	</sequence>
     </complexType>
 
-    <element name="RequestModify" type="tns:ListaRegisti.Type"></element>
+    <element name="RequestModifyRegisti" type="tns:ListaRegisti.Type"></element>
 </schema>

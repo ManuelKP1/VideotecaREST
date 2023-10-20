@@ -233,13 +233,13 @@
             <wsdl:import namespace="http://www.example.org/Negozio"/>
             <wsdl:import namespace="http://xmlns.example.com/Negozi/parameters"/>
             <wsdl:message name="postRequest">
-                <wsdl:part element="extns1:RequestAdd" name="RequestAdd" tibex:hasMultipleNamespaces="false"/>
+                <wsdl:part element="extns1:RequestAddNegozio"
+                    name="item" tibex:hasMultipleNamespaces="false"/>
                 <wsdl:part element="extns:httpHeaders"
                     name="httpHeaders" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="postResponse">
-                <wsdl:part element="extns1:ResponseAdd"
-                    name="ResponseAdd" tibex:hasMultipleNamespaces="false"/>
+                <wsdl:part element="extns1:ResponseNegozio" name="item" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="post4XXFaultMessage">
                 <wsdl:part element="extns:client4XXError" name="clientError"/>
@@ -252,7 +252,7 @@
                     name="httpHeaders" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="getResponse">
-                <wsdl:part element="extns1:ResponseSelect"
+                <wsdl:part element="extns1:ResponseSelectNegozio"
                     name="ResponseSelect" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="get4XXFaultMessage">
@@ -262,13 +262,13 @@
                 <wsdl:part element="extns:server5XXError" name="serverError"/>
             </wsdl:message>
             <wsdl:message name="putRequest">
-                <wsdl:part element="extns1:RequesteModify"
+                <wsdl:part element="extns1:RequesteModifyNegozio"
                     name="RequestModify" tibex:hasMultipleNamespaces="false"/>
                 <wsdl:part element="extns:httpHeaders"
                     name="httpHeaders" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="putResponse">
-                <wsdl:part element="extns1:ResponseAdd"
+                <wsdl:part element="extns1:ResponseNegozio"
                     name="ResponseModify" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="put4XXFaultMessage">
@@ -284,7 +284,7 @@
                     name="parameters" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="deleteResponse">
-                <wsdl:part element="extns1:ResponseAdd"
+                <wsdl:part element="extns1:ResponseNegozio"
                     name="ResponseDelete" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="delete4XXFaultMessage">
@@ -1665,13 +1665,15 @@
         <bpws:variable messageType="ns0:deleteRequest" name="delete" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns0:deleteResponse"
             name="deleteOut-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequestAdd" name="Add-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Add" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseSelect" name="Select" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequesteModify" name="Modify-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Modify" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequestDelete" name="Delete-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Delete" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequestAddNegozio" name="Add-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseNegozio" name="Add" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseSelectNegozio" name="Select" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequesteModifyNegozio"
+            name="Modify-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseNegozio" name="Modify" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequestDeleteNegozio"
+            name="Delete-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseNegozio" name="Delete" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -1703,17 +1705,17 @@
                                 tibex:xpdlId="80aa205e-068a-49f1-ad9f-964ba1f5e446" variable="postOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Add&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Add/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Add&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseNegozio>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Add/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;&lt;xsl:param name="Add"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns1:postResponse&gt;&lt;ResponseAdd&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Add/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseAdd&gt;&lt;/tns1:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;&lt;xsl:param name="Add"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns1:postResponse&gt;&lt;item&gt;&lt;tns:ResponseNegozio&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Add/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseNegozio&gt;&lt;/item&gt;&lt;/tns1:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="AddTopostOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;post&quot;/>&lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&lt;tns:RequestAdd>&lt;tns:Citta>&lt;xsl:value-of select=&quot;$post/RequestAdd/tns:RequestAdd/tns:Citta&quot;/>&lt;/tns:Citta>&lt;tns:Indirizzo>&lt;xsl:value-of select=&quot;$post/RequestAdd/tns:RequestAdd/tns:Indirizzo&quot;/>&lt;/tns:Indirizzo>&lt;/tns:RequestAdd>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;post&quot;/>&lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&lt;tns:RequestAddNegozio>&lt;tns:Citta>&lt;xsl:value-of select=&quot;$post/item/tns:RequestAddNegozio/tns:Citta&quot;/>&lt;/tns:Citta>&lt;tns:Indirizzo>&lt;xsl:value-of select=&quot;$post/item/tns:RequestAddNegozio/tns:Indirizzo&quot;/>&lt;/tns:Indirizzo>&lt;/tns:RequestAddNegozio>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Add-input" name="Add"
                                     outputVariable="Add"
@@ -1724,7 +1726,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding coercion=""
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post.RequestAdd&quot;/>&#xa;    &lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestAdd>&#xa;            &lt;tns:Citta>&#xa;                &lt;xsl:value-of select=&quot;$post.RequestAdd/tns:Citta&quot;/>&#xa;            &lt;/tns:Citta>&#xa;            &lt;tns:Indirizzo>&#xa;                &lt;xsl:value-of select=&quot;$post.RequestAdd/tns:Indirizzo&quot;/>&#xa;            &lt;/tns:Indirizzo>&#xa;        &lt;/tns:RequestAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post.item&quot;/>&#xa;    &lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestAddNegozio>&#xa;            &lt;tns:Citta>&#xa;                &lt;xsl:value-of select=&quot;$post.item/tns:Citta&quot;/>&#xa;            &lt;/tns:Citta>&#xa;            &lt;tns:Indirizzo>&#xa;                &lt;xsl:value-of select=&quot;$post.item/tns:Indirizzo&quot;/>&#xa;            &lt;/tns:Indirizzo>&#xa;        &lt;/tns:RequestAddNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
                                     subProcessName="Negozi.Integrazione.Add" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
@@ -1751,10 +1753,21 @@
                                 tibex:xpdlId="63eea9c6-e2f1-4f41-80a7-f2af7a0b630c" variable="getOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Select&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelect>&#xa;            &lt;xsl:copy-of select=&quot;$Select/tns:Negozi&quot;/>&#xa;        &lt;/tns:ResponseSelect>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Select&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelectNegozio>&#xa;            &lt;xsl:copy-of select=&quot;$Select/tns:Negozi&quot;/>&#xa;        &lt;/tns:ResponseSelectNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;&lt;xsl:param name="Select"/&gt;&lt;xsl:template name="getOut-input" match="/"&gt;&lt;tns1:getResponse&gt;&lt;ResponseSelect&gt;&lt;tns:ResponseSelect&gt;&lt;xsl:copy-of select="$Select/tns:Negozi"/&gt;&lt;/tns:ResponseSelect&gt;&lt;/ResponseSelect&gt;&lt;/tns1:getResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;
+    &lt;xsl:param name="Select"/&gt;
+    &lt;xsl:template name="getOut-input" match="/"&gt;
+        &lt;tns1:getResponse&gt;
+            &lt;ResponseSelect&gt;
+                &lt;tns:ResponseSelectNegozio&gt;
+                    &lt;xsl:copy-of select="$Select/tns:Negozi"/&gt;
+                &lt;/tns:ResponseSelectNegozio&gt;
+            &lt;/ResponseSelect&gt;
+        &lt;/tns1:getResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="SelectTogetOut"/>
                                 </bpws:targets>
@@ -1792,17 +1805,30 @@
                                 tibex:xpdlId="b4bae047-b137-466a-b80b-192b826fd849" variable="putOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Modify&quot;/>&#xa;    &lt;xsl:template name=&quot;putOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Modify/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Modify&quot;/>&#xa;    &lt;xsl:template name=&quot;putOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseNegozio>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Modify/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;&lt;xsl:param name="Modify"/&gt;&lt;xsl:template name="putOut-input" match="/"&gt;&lt;tns1:putResponse&gt;&lt;ResponseModify&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Modify/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseModify&gt;&lt;/tns1:putResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;
+    &lt;xsl:param name="Modify"/&gt;
+    &lt;xsl:template name="putOut-input" match="/"&gt;
+        &lt;tns1:putResponse&gt;
+            &lt;ResponseModify&gt;
+                &lt;tns:ResponseNegozio&gt;
+                    &lt;tns:Response&gt;
+                        &lt;xsl:value-of select="$Modify/tns:Response"/&gt;
+                    &lt;/tns:Response&gt;
+                &lt;/tns:ResponseNegozio&gt;
+            &lt;/ResponseModify&gt;
+        &lt;/tns1:putResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="ModifyToputOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;put&quot;/>&lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&lt;tns:RequesteModify>&lt;tns:ID_Negozio>&lt;xsl:value-of select=&quot;$put/RequestModify/tns:RequesteModify/tns:ID_Negozio&quot;/>&lt;/tns:ID_Negozio>&lt;tns:citta>&lt;xsl:value-of select=&quot;$put/RequestModify/tns:RequesteModify/tns:citta&quot;/>&lt;/tns:citta>&lt;tns:Indirizzo>&lt;xsl:value-of select=&quot;$put/RequestModify/tns:RequesteModify/tns:Indirizzo&quot;/>&lt;/tns:Indirizzo>&lt;/tns:RequesteModify>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;put&quot;/>&#xa;    &lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequesteModifyNegozio>&#xa;            &lt;tns:ID_Negozio>&#xa;                &lt;xsl:value-of select=&quot;$put/RequestModify/tns:RequesteModifyNegozio/tns:ID_Negozio&quot;/>&#xa;            &lt;/tns:ID_Negozio>&#xa;            &lt;tns:citta>&#xa;                &lt;xsl:value-of select=&quot;$put/RequestModify/tns:RequesteModifyNegozio/tns:citta&quot;/>&#xa;            &lt;/tns:citta>&#xa;            &lt;tns:Indirizzo>&#xa;                &lt;xsl:value-of select=&quot;$put/RequestModify/tns:RequesteModifyNegozio/tns:Indirizzo&quot;/>&#xa;            &lt;/tns:Indirizzo>&#xa;        &lt;/tns:RequesteModifyNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Modify-input"
                                     name="Modify"
@@ -1814,7 +1840,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding coercion=""
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;put.RequestModify&quot;/>&#xa;    &lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequesteModify>&#xa;            &lt;tns:ID_Negozio>&#xa;                &lt;xsl:value-of select=&quot;$put.RequestModify/tns:ID_Negozio&quot;/>&#xa;            &lt;/tns:ID_Negozio>&#xa;            &lt;tns:citta>&#xa;                &lt;xsl:value-of select=&quot;$put.RequestModify/tns:citta&quot;/>&#xa;            &lt;/tns:citta>&#xa;            &lt;tns:Indirizzo>&#xa;                &lt;xsl:value-of select=&quot;$put.RequestModify/tns:Indirizzo&quot;/>&#xa;            &lt;/tns:Indirizzo>&#xa;        &lt;/tns:RequesteModify>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;put.RequestModify&quot;/>&#xa;    &lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequesteModifyNegozio>&#xa;            &lt;tns:ID_Negozio>&#xa;                &lt;xsl:value-of select=&quot;$put.RequestModify/tns:ID_Negozio&quot;/>&#xa;            &lt;/tns:ID_Negozio>&#xa;            &lt;tns:citta>&#xa;                &lt;xsl:value-of select=&quot;$put.RequestModify/tns:citta&quot;/>&#xa;            &lt;/tns:citta>&#xa;            &lt;tns:Indirizzo>&#xa;                &lt;xsl:value-of select=&quot;$put.RequestModify/tns:Indirizzo&quot;/>&#xa;            &lt;/tns:Indirizzo>&#xa;        &lt;/tns:RequesteModifyNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
                                     subProcessName="Negozi.Integrazione.Modify" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
@@ -1841,17 +1867,30 @@
                                 tibex:xpdlId="0eb0bca4-55b3-4f34-8ae0-6129132825dc" variable="deleteOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Delete&quot;/>&#xa;    &lt;xsl:template name=&quot;deleteOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Delete/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019094542PLT&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Delete&quot;/>&#xa;    &lt;xsl:template name=&quot;deleteOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseNegozio>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Delete/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;&lt;xsl:param name="Delete"/&gt;&lt;xsl:template name="deleteOut-input" match="/"&gt;&lt;tns1:deleteResponse&gt;&lt;ResponseDelete&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Delete/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseDelete&gt;&lt;/tns1:deleteResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019094542PLT" xmlns:tns="http://www.example.org/Negozio" version="2.0"&gt;
+    &lt;xsl:param name="Delete"/&gt;
+    &lt;xsl:template name="deleteOut-input" match="/"&gt;
+        &lt;tns1:deleteResponse&gt;
+            &lt;ResponseDelete&gt;
+                &lt;tns:ResponseNegozio&gt;
+                    &lt;tns:Response&gt;
+                        &lt;xsl:value-of select="$Delete/tns:Response"/&gt;
+                    &lt;/tns:Response&gt;
+                &lt;/tns:ResponseNegozio&gt;
+            &lt;/ResponseDelete&gt;
+        &lt;/tns1:deleteResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="DeleteTodeleteOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Negozi/parameters&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;delete&quot;/>&lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&lt;tns:RequestDelete>&lt;tns:ID_Negozio>&lt;xsl:value-of select=&quot;xsd:int($delete/parameters/tns1:negoziDeleteParameters/tns1:ID_Negozio)&quot;/>&lt;/tns:ID_Negozio>&lt;/tns:RequestDelete>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Negozi/parameters&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestDeleteNegozio>&#xa;            &lt;tns:ID_Negozio>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete/parameters/tns1:negoziDeleteParameters/tns1:ID_Negozio)&quot;/>&#xa;            &lt;/tns:ID_Negozio>&#xa;        &lt;/tns:RequestDeleteNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Delete-input"
                                     name="Delete"
@@ -1863,7 +1902,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding coercion=""
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Negozi/parameters&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestDelete>&#xa;            &lt;tns:ID_Negozio>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete.parameters/tns1:ID_Negozio)&quot;/>&#xa;            &lt;/tns:ID_Negozio>&#xa;        &lt;/tns:RequestDelete>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Negozio&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Negozi/parameters&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestDeleteNegozio>&#xa;            &lt;tns:ID_Negozio>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete.parameters/tns1:ID_Negozio)&quot;/>&#xa;            &lt;/tns:ID_Negozio>&#xa;        &lt;/tns:RequestDeleteNegozio>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
                                     subProcessName="Negozi.Integrazione.Delete" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>

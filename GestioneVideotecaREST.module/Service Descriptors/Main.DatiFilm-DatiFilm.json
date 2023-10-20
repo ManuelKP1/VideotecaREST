@@ -21,15 +21,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequestAddFilm"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseFilm to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseFilm"
             }
           }
         }
@@ -43,9 +43,9 @@
         "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseSelect to be returned",
+            "description" : "a ResponseSelectFilm to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseSelect"
+              "$ref" : "#/definitions/ResponseSelectFilm"
             }
           }
         }
@@ -61,15 +61,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestModify"
+            "$ref" : "#/definitions/RequestModifyFilm"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseFilm to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseFilm"
             }
           }
         }
@@ -90,9 +90,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseFilm to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseFilm"
             }
           }
         }
@@ -100,6 +100,66 @@
     }
   },
   "definitions" : {
+    "RequestAddFilm" : {
+      "type" : "object",
+      "required" : [ "Durata", "Genere", "ID_Regista", "Copie", "DataUscita", "Nome" ],
+      "properties" : {
+        "Nome" : {
+          "type" : "string"
+        },
+        "Durata" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "DataUscita" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Copie" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Genere" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RequestModifyFilm" : {
+      "type" : "object",
+      "required" : [ "Durata", "Genere", "ID_Film", "ID_Regista", "Copie", "DataUscita", "Nome" ],
+      "properties" : {
+        "ID_Film" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Nome" : {
+          "type" : "string"
+        },
+        "Durata" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "DataUscita" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "ID_Regista" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Copie" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "Genere" : {
+          "type" : "string"
+        }
+      }
+    },
     "ListaFilm" : {
       "type" : "object",
       "required" : [ "Durata", "Genere", "ID_Film", "ID_Regista", "Copie", "DataUscita", "Nome" ],
@@ -132,35 +192,16 @@
         }
       }
     },
-    "RequestAdd" : {
+    "ResponseFilm" : {
       "type" : "object",
-      "required" : [ "Durata", "Genere", "ID_Regista", "Copie", "DataUscita", "Nome" ],
+      "required" : [ "Response" ],
       "properties" : {
-        "Nome" : {
-          "type" : "string"
-        },
-        "Durata" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "DataUscita" : {
-          "type" : "string",
-          "format" : "date"
-        },
-        "ID_Regista" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "Copie" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "Genere" : {
+        "Response" : {
           "type" : "string"
         }
       }
     },
-    "ResponseSelect" : {
+    "ResponseSelectFilm" : {
       "type" : "object",
       "required" : [ "ListaFilm" ],
       "properties" : {
@@ -170,47 +211,6 @@
             "$ref" : "#/definitions/ListaFilm",
             "uniqueItems" : false
           }
-        }
-      }
-    },
-    "RequestModify" : {
-      "type" : "object",
-      "required" : [ "Durata", "Genere", "ID_Film", "ID_Regista", "Copie", "DataUscita", "Nome" ],
-      "properties" : {
-        "ID_Film" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "Nome" : {
-          "type" : "string"
-        },
-        "Durata" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "DataUscita" : {
-          "type" : "string",
-          "format" : "date"
-        },
-        "ID_Regista" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "Copie" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "Genere" : {
-          "type" : "string"
-        }
-      }
-    },
-    "ResponseAdd" : {
-      "type" : "object",
-      "required" : [ "Response" ],
-      "properties" : {
-        "Response" : {
-          "type" : "string"
         }
       }
     }

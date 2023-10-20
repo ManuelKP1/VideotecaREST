@@ -233,13 +233,13 @@
             <wsdl:import namespace="http://www.example.org/Regista"/>
             <wsdl:import namespace="http://xmlns.example.com/Registi/parameters"/>
             <wsdl:message name="postRequest">
-                <wsdl:part element="extns1:RequestAdd" name="RequestAdd" tibex:hasMultipleNamespaces="false"/>
+                <wsdl:part element="extns1:RequestAddRegisti"
+                    name="item" tibex:hasMultipleNamespaces="false"/>
                 <wsdl:part element="extns:httpHeaders"
                     name="httpHeaders" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="postResponse">
-                <wsdl:part element="extns1:ResponseAdd"
-                    name="ResponseAdd" tibex:hasMultipleNamespaces="false"/>
+                <wsdl:part element="extns1:ResponseRegisti" name="item" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="post4XXFaultMessage">
                 <wsdl:part element="extns:client4XXError" name="clientError"/>
@@ -252,7 +252,7 @@
                     name="httpHeaders" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="getResponse">
-                <wsdl:part element="extns1:ResponseSelect"
+                <wsdl:part element="extns1:ResponseSelectRegisti"
                     name="ResponseSelect" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="get4XXFaultMessage">
@@ -262,13 +262,13 @@
                 <wsdl:part element="extns:server5XXError" name="serverError"/>
             </wsdl:message>
             <wsdl:message name="putRequest">
-                <wsdl:part element="extns1:RequestModify"
+                <wsdl:part element="extns1:RequestModifyRegisti"
                     name="RequestModify" tibex:hasMultipleNamespaces="false"/>
                 <wsdl:part element="extns:httpHeaders"
                     name="httpHeaders" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="putResponse">
-                <wsdl:part element="extns1:ResponseAdd"
+                <wsdl:part element="extns1:ResponseRegisti"
                     name="ResponseModify" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="put4XXFaultMessage">
@@ -284,7 +284,7 @@
                     name="parameters" tibex:source="bw.rest"/>
             </wsdl:message>
             <wsdl:message name="deleteResponse">
-                <wsdl:part element="extns1:ResponseAdd"
+                <wsdl:part element="extns1:ResponseRegisti"
                     name="ResponseDelete" tibex:hasMultipleNamespaces="false"/>
             </wsdl:message>
             <wsdl:message name="delete4XXFaultMessage">
@@ -1667,13 +1667,15 @@
         <bpws:variable messageType="ns0:deleteRequest" name="delete" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns0:deleteResponse"
             name="deleteOut-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequestAdd" name="Add-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Add" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseSelect" name="Select" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequestModify" name="Modify-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Modify" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:RequestDelete" name="Delete-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns1:ResponseAdd" name="Delete" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequestAddRegisti" name="Add-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseRegisti" name="Add" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseSelectRegisti" name="Select" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequestModifyRegisti"
+            name="Modify-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseRegisti" name="Modify" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:RequestDeleteRegisti"
+            name="Delete-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:ResponseRegisti" name="Delete" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -1705,17 +1707,17 @@
                                 tibex:xpdlId="6b49e065-01e4-471a-8e81-6cd220d3d1c1" variable="postOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019095436PLT&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Add&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Add/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019095436PLT&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Add&quot;/>&#xa;    &lt;xsl:template name=&quot;postOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseRegisti>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Add/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseRegisti>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019095436PLT" xmlns:tns="http://www.example.org/Regista" version="2.0"&gt;&lt;xsl:param name="Add"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns1:postResponse&gt;&lt;ResponseAdd&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Add/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseAdd&gt;&lt;/tns1:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019095436PLT" xmlns:tns="http://www.example.org/Regista" version="2.0"&gt;&lt;xsl:param name="Add"/&gt;&lt;xsl:template name="postOut-input" match="/"&gt;&lt;tns1:postResponse&gt;&lt;item&gt;&lt;tns:ResponseRegisti&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Add/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseRegisti&gt;&lt;/item&gt;&lt;/tns1:postResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="AddTopostOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;post&quot;/>&lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&lt;xsl:copy-of select=&quot;$post/RequestAdd/tns:RequestAdd&quot;/>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;post&quot;/>&lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&lt;xsl:copy-of select=&quot;$post/item/tns:RequestAddRegisti&quot;/>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Add-input" name="Add"
                                     outputVariable="Add"
@@ -1726,7 +1728,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding coercion=""
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post.RequestAdd&quot;/>&#xa;    &lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$post.RequestAdd&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;post.item&quot;/>&#xa;    &lt;xsl:template name=&quot;Add-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$post.item&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
                                     subProcessName="Registi.Integrazione.Add" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
@@ -1753,10 +1755,21 @@
                                 tibex:xpdlId="8e3c258c-641a-4283-b5ee-f3664cb737ef" variable="getOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019095436PLT&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Select&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelect>&#xa;            &lt;xsl:copy-of select=&quot;$Select/tns:ListaRegisti&quot;/>&#xa;        &lt;/tns:ResponseSelect>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019095436PLT&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Select&quot;/>&#xa;    &lt;xsl:template name=&quot;getOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseSelectRegisti>&#xa;            &lt;xsl:copy-of select=&quot;$Select/tns:ListaRegisti&quot;/>&#xa;        &lt;/tns:ResponseSelectRegisti>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019095436PLT" xmlns:tns="http://www.example.org/Regista" version="2.0"&gt;&lt;xsl:param name="Select"/&gt;&lt;xsl:template name="getOut-input" match="/"&gt;&lt;tns1:getResponse&gt;&lt;ResponseSelect&gt;&lt;tns:ResponseSelect&gt;&lt;xsl:copy-of select="$Select/tns:ListaRegisti"/&gt;&lt;/tns:ResponseSelect&gt;&lt;/ResponseSelect&gt;&lt;/tns1:getResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019095436PLT" xmlns:tns="http://www.example.org/Regista" version="2.0"&gt;
+    &lt;xsl:param name="Select"/&gt;
+    &lt;xsl:template name="getOut-input" match="/"&gt;
+        &lt;tns1:getResponse&gt;
+            &lt;ResponseSelect&gt;
+                &lt;tns:ResponseSelectRegisti&gt;
+                    &lt;xsl:copy-of select="$Select/tns:ListaRegisti"/&gt;
+                &lt;/tns:ResponseSelectRegisti&gt;
+            &lt;/ResponseSelect&gt;
+        &lt;/tns1:getResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="SelectTogetOut"/>
                                 </bpws:targets>
@@ -1794,17 +1807,30 @@
                                 tibex:xpdlId="e1aae019-0aeb-44fd-ba22-e54a486745be" variable="putOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019095436PLT&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Modify&quot;/>&#xa;    &lt;xsl:template name=&quot;putOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Modify/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019095436PLT&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Modify&quot;/>&#xa;    &lt;xsl:template name=&quot;putOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseRegisti>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Modify/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseRegisti>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019095436PLT" xmlns:tns="http://www.example.org/Regista" version="2.0"&gt;&lt;xsl:param name="Modify"/&gt;&lt;xsl:template name="putOut-input" match="/"&gt;&lt;tns1:putResponse&gt;&lt;ResponseModify&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Modify/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseModify&gt;&lt;/tns1:putResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019095436PLT" xmlns:tns="http://www.example.org/Regista" version="2.0"&gt;
+    &lt;xsl:param name="Modify"/&gt;
+    &lt;xsl:template name="putOut-input" match="/"&gt;
+        &lt;tns1:putResponse&gt;
+            &lt;ResponseModify&gt;
+                &lt;tns:ResponseRegisti&gt;
+                    &lt;tns:Response&gt;
+                        &lt;xsl:value-of select="$Modify/tns:Response"/&gt;
+                    &lt;/tns:Response&gt;
+                &lt;/tns:ResponseRegisti&gt;
+            &lt;/ResponseModify&gt;
+        &lt;/tns1:putResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="ModifyToputOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;put&quot;/>&lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&lt;xsl:copy-of select=&quot;$put/RequestModify/tns:RequestModify&quot;/>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;put&quot;/>&#xa;    &lt;xsl:template name=&quot;Modify-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:copy-of select=&quot;$put/RequestModify/tns:RequestModifyRegisti&quot;/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Modify-input"
                                     name="Modify"
@@ -1843,17 +1869,30 @@
                                 tibex:xpdlId="08ef02f6-8e9a-404a-a6d3-0cd082cff8f4" variable="deleteOut-input">
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019095436PLT&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Delete&quot;/>&#xa;    &lt;xsl:template name=&quot;deleteOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseAdd>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Delete/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseAdd>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://xmlns.example.com/20231019095436PLT&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Delete&quot;/>&#xa;    &lt;xsl:template name=&quot;deleteOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ResponseRegisti>&#xa;            &lt;tns:Response>&#xa;                &lt;xsl:value-of select=&quot;$Delete/tns:Response&quot;/>&#xa;            &lt;/tns:Response>&#xa;        &lt;/tns:ResponseRegisti>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019095436PLT" xmlns:tns="http://www.example.org/Regista" version="2.0"&gt;&lt;xsl:param name="Delete"/&gt;&lt;xsl:template name="deleteOut-input" match="/"&gt;&lt;tns1:deleteResponse&gt;&lt;ResponseDelete&gt;&lt;tns:ResponseAdd&gt;&lt;tns:Response&gt;&lt;xsl:value-of select="$Delete/tns:Response"/&gt;&lt;/tns:Response&gt;&lt;/tns:ResponseAdd&gt;&lt;/ResponseDelete&gt;&lt;/tns1:deleteResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns1="http://xmlns.example.com/20231019095436PLT" xmlns:tns="http://www.example.org/Regista" version="2.0"&gt;
+    &lt;xsl:param name="Delete"/&gt;
+    &lt;xsl:template name="deleteOut-input" match="/"&gt;
+        &lt;tns1:deleteResponse&gt;
+            &lt;ResponseDelete&gt;
+                &lt;tns:ResponseRegisti&gt;
+                    &lt;tns:Response&gt;
+                        &lt;xsl:value-of select="$Delete/tns:Response"/&gt;
+                    &lt;/tns:Response&gt;
+                &lt;/tns:ResponseRegisti&gt;
+            &lt;/ResponseDelete&gt;
+        &lt;/tns1:deleteResponse&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <bpws:targets>
                                     <bpws:target linkName="DeleteTodeleteOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:extActivity
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Registi/parameters&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;delete&quot;/>&lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&lt;tns:RequestDelete>&lt;tns:ID_Regista>&lt;xsl:value-of select=&quot;xsd:int($delete/parameters/tns1:registiDeleteParameters/tns1:ID_Regista)&quot;/>&lt;/tns:ID_Regista>&lt;/tns:RequestDelete>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Registi/parameters&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestDeleteRegisti>&#xa;            &lt;tns:ID_Regista>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete/parameters/tns1:registiDeleteParameters/tns1:ID_Regista)&quot;/>&#xa;            &lt;/tns:ID_Regista>&#xa;        &lt;/tns:RequestDeleteRegisti>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Delete-input"
                                     name="Delete"
@@ -1865,7 +1904,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding coercion=""
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Registi/parameters&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestDelete>&#xa;            &lt;tns:ID_Regista>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete.parameters/tns1:ID_Regista)&quot;/>&#xa;            &lt;/tns:ID_Regista>&#xa;        &lt;/tns:RequestDelete>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Regista&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://xmlns.example.com/Registi/parameters&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;delete.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Delete-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:RequestDeleteRegisti>&#xa;            &lt;tns:ID_Regista>&#xa;                &lt;xsl:value-of select=&quot;xsd:int($delete.parameters/tns1:ID_Regista)&quot;/>&#xa;            &lt;/tns:ID_Regista>&#xa;        &lt;/tns:RequestDeleteRegisti>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:CallProcess
                                     subProcessName="Registi.Integrazione.Delete" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>

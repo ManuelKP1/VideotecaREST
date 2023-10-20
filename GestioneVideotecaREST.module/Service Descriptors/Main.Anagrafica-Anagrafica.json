@@ -21,15 +21,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequestAddAnagrafica"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseAnagrafica to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseAnagrafica"
             }
           }
         }
@@ -43,9 +43,9 @@
         "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseSelect to be returned",
+            "description" : "a ResponseSelectAnagrafica to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseSelect"
+              "$ref" : "#/definitions/ResponseSelectAnagrafica"
             }
           }
         }
@@ -61,15 +61,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequestAddAnagrafica"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseAnagrafica to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseAnagrafica"
             }
           }
         }
@@ -89,9 +89,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseAnagrafica to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseAnagrafica"
             }
           }
         }
@@ -99,6 +99,19 @@
     }
   },
   "definitions" : {
+    "ResponseSelectAnagrafica" : {
+      "type" : "object",
+      "required" : [ "Dati" ],
+      "properties" : {
+        "Dati" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Dati",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
     "Dati" : {
       "type" : "object",
       "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
@@ -124,7 +137,7 @@
         }
       }
     },
-    "RequestAdd" : {
+    "RequestAddAnagrafica" : {
       "type" : "object",
       "required" : [ "Email", "Indirizzo", "Citta", "Nome", "Cognome", "DataNascita" ],
       "properties" : {
@@ -149,20 +162,7 @@
         }
       }
     },
-    "ResponseSelect" : {
-      "type" : "object",
-      "required" : [ "Dati" ],
-      "properties" : {
-        "Dati" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Dati",
-            "uniqueItems" : false
-          }
-        }
-      }
-    },
-    "ResponseAdd" : {
+    "ResponseAnagrafica" : {
       "type" : "object",
       "required" : [ "Response" ],
       "properties" : {

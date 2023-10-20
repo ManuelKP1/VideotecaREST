@@ -21,15 +21,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequestAddRegisti"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseRegisti to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseRegisti"
             }
           }
         }
@@ -43,9 +43,9 @@
         "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseSelect to be returned",
+            "description" : "a ResponseSelectRegisti to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseSelect"
+              "$ref" : "#/definitions/ResponseSelectRegisti"
             }
           }
         }
@@ -61,15 +61,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestModify"
+            "$ref" : "#/definitions/RequestModifyRegisti"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseRegisti to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseRegisti"
             }
           }
         }
@@ -90,9 +90,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseRegisti to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseRegisti"
             }
           }
         }
@@ -116,19 +116,7 @@
         }
       }
     },
-    "RequestAdd" : {
-      "type" : "object",
-      "required" : [ "Nome", "Cognome" ],
-      "properties" : {
-        "Nome" : {
-          "type" : "string"
-        },
-        "Cognome" : {
-          "type" : "string"
-        }
-      }
-    },
-    "ResponseSelect" : {
+    "ResponseSelectRegisti" : {
       "type" : "object",
       "required" : [ "ListaRegisti" ],
       "properties" : {
@@ -141,7 +129,7 @@
         }
       }
     },
-    "RequestModify" : {
+    "RequestModifyRegisti" : {
       "type" : "object",
       "required" : [ "ID_Regista", "Nome", "Cognome" ],
       "properties" : {
@@ -157,7 +145,19 @@
         }
       }
     },
-    "ResponseAdd" : {
+    "RequestAddRegisti" : {
+      "type" : "object",
+      "required" : [ "Nome", "Cognome" ],
+      "properties" : {
+        "Nome" : {
+          "type" : "string"
+        },
+        "Cognome" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ResponseRegisti" : {
       "type" : "object",
       "required" : [ "Response" ],
       "properties" : {

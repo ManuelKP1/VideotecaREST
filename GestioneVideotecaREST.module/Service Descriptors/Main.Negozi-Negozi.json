@@ -21,15 +21,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequestAdd"
+            "$ref" : "#/definitions/RequestAddNegozio"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseNegozio to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseNegozio"
             }
           }
         }
@@ -43,9 +43,9 @@
         "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseSelect to be returned",
+            "description" : "a ResponseSelectNegozio to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseSelect"
+              "$ref" : "#/definitions/ResponseSelectNegozio"
             }
           }
         }
@@ -61,15 +61,15 @@
           "in" : "body",
           "description" : "",
           "schema" : {
-            "$ref" : "#/definitions/RequesteModify"
+            "$ref" : "#/definitions/RequesteModifyNegozio"
           },
           "required" : true
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseNegozio to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseNegozio"
             }
           }
         }
@@ -90,9 +90,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "a ResponseAdd to be returned",
+            "description" : "a ResponseNegozio to be returned",
             "schema" : {
-              "$ref" : "#/definitions/ResponseAdd"
+              "$ref" : "#/definitions/ResponseNegozio"
             }
           }
         }
@@ -100,47 +100,6 @@
     }
   },
   "definitions" : {
-    "RequesteModify" : {
-      "type" : "object",
-      "required" : [ "ID_Negozio", "Indirizzo", "citta" ],
-      "properties" : {
-        "ID_Negozio" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "citta" : {
-          "type" : "string"
-        },
-        "Indirizzo" : {
-          "type" : "string"
-        }
-      }
-    },
-    "RequestAdd" : {
-      "type" : "object",
-      "required" : [ "Indirizzo", "Citta" ],
-      "properties" : {
-        "Citta" : {
-          "type" : "string"
-        },
-        "Indirizzo" : {
-          "type" : "string"
-        }
-      }
-    },
-    "ResponseSelect" : {
-      "type" : "object",
-      "required" : [ "Negozi" ],
-      "properties" : {
-        "Negozi" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Negozi",
-            "uniqueItems" : false
-          }
-        }
-      }
-    },
     "Negozi" : {
       "type" : "object",
       "required" : [ "ID_Negozio", "Indirizzo", "citta" ],
@@ -157,11 +116,52 @@
         }
       }
     },
-    "ResponseAdd" : {
+    "ResponseNegozio" : {
       "type" : "object",
       "required" : [ "Response" ],
       "properties" : {
         "Response" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RequesteModifyNegozio" : {
+      "type" : "object",
+      "required" : [ "ID_Negozio", "Indirizzo", "citta" ],
+      "properties" : {
+        "ID_Negozio" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "citta" : {
+          "type" : "string"
+        },
+        "Indirizzo" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ResponseSelectNegozio" : {
+      "type" : "object",
+      "required" : [ "Negozi" ],
+      "properties" : {
+        "Negozi" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Negozi",
+            "uniqueItems" : false
+          }
+        }
+      }
+    },
+    "RequestAddNegozio" : {
+      "type" : "object",
+      "required" : [ "Indirizzo", "Citta" ],
+      "properties" : {
+        "Citta" : {
+          "type" : "string"
+        },
+        "Indirizzo" : {
           "type" : "string"
         }
       }
